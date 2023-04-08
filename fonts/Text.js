@@ -7,7 +7,7 @@ const Text = ({ style, ...rest }) => {
   });
 
   return (
-    <RNText style={[{ fontFamily: "MetropolisRegular" }, style]} {...rest} />
+    <RNText style={[{ fontFamily: "MetropolisRegular", color:"#263d2c" }, style]} {...rest} />
   );
 };
 

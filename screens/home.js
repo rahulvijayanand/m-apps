@@ -14,6 +14,8 @@ import Location from "../components/Location";
 import TextSemiBold from "../fonts/TextSemiBold";
 import Categories from "../components/Categories";
 import RectangularComponent from "../components/Rectangle";
+import RectD from "../components/DealsRec";
+import BestSeller from "../components/BestSeller";
 
 function HomeScreen() {
   const slides = [
@@ -39,6 +41,29 @@ function HomeScreen() {
     {
       image: require("../assets/E2.png"),
       text: "Fabric",
+    },
+  ];
+
+  const dataDa = [
+    {
+      backgroundImage: require("../assets/D6.png"),
+      boldText: "Upto 50% off",
+      normalText: "Home essentials, Personal hygiene",
+    },
+    {
+      backgroundImage: require("../assets/D6.png"),
+      boldText: "From Rs.199",
+      normalText: "Gifts, crafts",
+    },
+    {
+      backgroundImage: require("../assets/D6.png"),
+      boldText: "Under Rs.1000",
+      normalText: "Home decor, Antiques",
+    },
+    {
+      backgroundImage: require("../assets/D6.png"),
+      boldText: "Buy One Get One",
+      normalText: "Selfcare products",
     },
   ];
 
@@ -76,6 +101,58 @@ function HomeScreen() {
           </TextSemiBold>
           <RectangularComponent data={data} />
         </View>
+        <View style={{ backgroundColor: "#92e3a9" }}>
+          <TextSemiBold style={{ marginLeft: 20, marginTop: 20, fontSize: 20 }}>
+            Deals of the Day
+          </TextSemiBold>
+          <RectD data={dataDa} />
+        </View>
+        <View>
+          <TextSemiBold style={{ marginLeft: 20, marginTop: 40, fontSize: 20 }}>
+            Best Sellers
+          </TextSemiBold>
+          <View style={{ flexDirection: "row" }}>
+            <BestSeller
+              imageSource={require("../assets/B1.png")}
+              title="Phaila Hydrating Handmade Soap Bars"
+              rating={4.8}
+              numReviews={1800}
+              oldPrice={599}
+              newPrice={350}
+              discount={30}
+            />
+            <BestSeller
+              imageSource={require("../assets/B1.png")}
+              title="Phaila Hydrating Handmade Soap Bars"
+              rating={4.8}
+              numReviews={1800}
+              oldPrice={599}
+              newPrice={350}
+              discount={30}
+            />
+          </View>
+          <View style={{ flexDirection: "row" }}>
+            <BestSeller
+              imageSource={require("../assets/B1.png")}
+              title="Phaila Hydrating Handmade Soap Bars"
+              rating={4.8}
+              numReviews={1800}
+              oldPrice={599}
+              newPrice={350}
+              discount={30}
+            />
+            <BestSeller
+              imageSource={require("../assets/B1.png")}
+              title="Phaila Hydrating Handmade Soap Bars"
+              rating={4.8}
+              numReviews={1800}
+              oldPrice={599}
+              newPrice={350}
+              discount={30}
+            />
+          </View>
+        </View>
+        <View style={{ marginBottom: 100 }}></View>
       </ScrollView>
     </View>
   );
