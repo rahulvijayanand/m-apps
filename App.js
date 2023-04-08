@@ -2,12 +2,12 @@ import React from "react";
 import { StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import Text from "./fonts/Text";
-import Nav from "./navigations/navigation";
+import Navigation from "./navigations/BottomTabNavigation";
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Nav />
+      <Navigation/>
     </NavigationContainer>
   );
 }
