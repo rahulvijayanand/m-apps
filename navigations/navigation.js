@@ -19,6 +19,7 @@ export default function App() {
           position: "absolute",
           bottom: 20,
           marginHorizontal: 20,
+          borderTopWidth: 0,
           height: 70,
           borderRadius: 35,
           shadowColor: "#000",
@@ -160,12 +161,6 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
   tabIcon: {
     width: 24,
     height: 24,

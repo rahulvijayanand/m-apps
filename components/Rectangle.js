@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View, Image } from "react-native";
+import { StyleSheet, View, Image, Pressable } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import TextLight from "../fonts/TextLight";
 import Text from "../fonts/Text";
@@ -7,7 +7,7 @@ const RectangularComponent = ({ data }) => {
   const { container, itemContainer, image, text } = styles;
 
   return (
-    <View style={container}>
+    <Pressable activeOpacity={0.5} style={container}>
       {data.map((item, index) => (
         <LinearGradient
           key={index}
@@ -18,7 +18,7 @@ const RectangularComponent = ({ data }) => {
           <Image style={image} source={item.image} />
         </LinearGradient>
       ))}
-    </View>
+    </Pressable>
   );
 };
 
@@ -36,6 +36,11 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     marginBottom: 20,
     alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.2,
+    shadowRadius: 2,
+    elevation: 3,
   },
   image: {
     width: 150,

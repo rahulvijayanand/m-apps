@@ -6,7 +6,7 @@ const Text = ({ style, ...rest }) => {
     MetropolisB: require("../fonts/Metropolis-Bold.otf"),
   });
 
-  return <RNText style={[{ fontFamily: "MetropolisB" }, style]} {...rest} />;
+  return <RNText style={[{ fontFamily: "MetropolisB", color:"#263d2c" }, style]} {...rest} />;
 };
 
 export default Text;
