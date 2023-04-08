@@ -23,8 +23,8 @@ const Search = () => {
         borderWidth: 1,
         marginLeft: 20,
         marginRight: 20,
-        marginTop: 30,
-        marginBottom: 30,
+        marginTop: 35,
+        marginBottom: 35,
       }}
     >
       <TextInput
