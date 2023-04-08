@@ -1,15 +1,11 @@
-import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { Image, StyleSheet, View, Dimensions } from "react-native";
-import { NavigationContainer } from "@react-navigation/native";
+import { Image, StyleSheet, View } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Text from "../fonts/Text";
 import HomeScreen from "../screens/home";
 import AccountScreen from "../screens/account";
 import ExploreScreen from "../screens/explore";
 import CategoriesScreen from "../screens/categories";
-
-const { width, height } = Dimensions.get("window");
 
 const Tab = createBottomTabNavigator();
 
@@ -31,7 +27,7 @@ export default function App() {
             width: 10,
             height: 10,
           },
-          paddingHorizontal: 10,
+          paddingHorizontal: 15,
         },
         labelStyle: {
           bottom: 10,
