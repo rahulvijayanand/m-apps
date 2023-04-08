@@ -33,7 +33,7 @@ const Search = () => {
         style={{
           height: 45,
           width: Dimensions.get("window").width - 80,
-          fontSize: 15,
+          fontSize: 13,
           fontFamily: "MetropolisRegular",
           marginLeft: 10,
         }}

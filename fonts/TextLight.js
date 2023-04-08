@@ -3,10 +3,10 @@ import { Text as RNText } from "react-native";
 
 const Text = ({ style, ...rest }) => {
   const [fontsLoaded] = useFonts({
-    MetropolisB: require("../fonts/Metropolis-Bold.otf"),
+    MetropolisL: require("../fonts/Metropolis-Thin.otf"),
   });
 
-  return <RNText style={[{ fontFamily: "MetropolisB" }, style]} {...rest} />;
+  return <RNText style={[{ fontFamily: "MetropolisL" }, style]} {...rest} />;
 };
 
 export default Text;
