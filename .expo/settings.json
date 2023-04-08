@@ -1,3 +1,6 @@
 {
-  "urlRandomness": "UGP6aNs"
+  "urlRandomness": "UGP6aNs",
+  "dev": true,
+  "minify": false,
+  "https": false
 }
