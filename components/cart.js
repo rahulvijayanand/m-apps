@@ -1,17 +1,17 @@
 import React from "react";
-import { View, Image, StyleSheet } from "react-native";
-import Text from "../fonts/Text";
+import { View, Image, StyleSheet, TouchableOpacity } from "react-native";
+import TextSemiBold from "../fonts/TextSemiBold"
 
 const ShoppingCartIcon = ({ itemsInCart }) => {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity activeOpacity={0.4} style={styles.container}>
       <Image source={require("../assets/Vector.png")} style={styles.icon} />
       {itemsInCart > 0 && (
         <View style={styles.bubble}>
-          <Text style={styles.bubbleText}>{itemsInCart}</Text>
+          <TextSemiBold style={styles.bubbleText}>{itemsInCart}</TextSemiBold>
         </View>
       )}
-    </View>
+    </TouchableOpacity>
   );
 };
 
@@ -22,11 +22,12 @@ const styles = StyleSheet.create({
   icon: {
     width: 30,
     height: 30,
+    resizeMode: "contain",
   },
   bubble: {
     position: "absolute",
-    top: -10,
-    right: -10,
+    top: -8,
+    right: -8,
     backgroundColor: "#92e3a9",
     borderRadius: 10,
     width: 20,
@@ -37,7 +38,6 @@ const styles = StyleSheet.create({
   bubbleText: {
     color: "#263d2c",
     fontSize: 12,
-    fontWeight: "bold",
   },
 });
 

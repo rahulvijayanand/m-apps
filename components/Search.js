@@ -18,12 +18,13 @@ const Search = () => {
       style={{
         flexDirection: "row",
         backgroundColor: "#fff",
-        borderRadius: 7,
-        marginTop: 20,
+        borderRadius: 10,
         borderColor: "#263d2c",
         borderWidth: 1,
-        marginLeft: 40,
-        marginRight: 40,
+        marginLeft: 20,
+        marginRight: 20,
+        marginTop: 30,
+        marginBottom: 30,
       }}
     >
       <TextInput
@@ -31,9 +32,8 @@ const Search = () => {
         placeholderTextColor={"#263d2c"}
         style={{
           height: 45,
-          width: width * 0.805,
+          width: Dimensions.get("window").width - 80,
           fontSize: 15,
-          fontWeight: "bold",
           fontFamily: "MetropolisRegular",
           marginLeft: 10,
         }}
