@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, StyleSheet, View,StatusBar,_ScrollView} from "react-native";
+import { Image, StyleSheet, View, StatusBar, _ScrollView } from "react-native";
 import Text from "../fonts/Text";
 import TopBar from "../components/TopBar";
 import NotifyMe from "../components/NotifyMe";
@@ -10,13 +10,13 @@ import { ScrollView } from "react-native-gesture-handler";
 function ExploreScreen() {
   return (
     <View style={styles.container}>
-     <TopBar/>
-     <View style={{height:20}}></View>
-     <ScrollView showsVerticalScrollIndicator={false}>
-     <NotifyMe/>
-     <ReadMore/>
-     <OtherPosts/>
-     </ScrollView>
+      <TopBar />
+      <View style={{ height: 20 }}></View>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <NotifyMe />
+        <ReadMore />
+        <OtherPosts />
+      </ScrollView>
     </View>
   );
 }
