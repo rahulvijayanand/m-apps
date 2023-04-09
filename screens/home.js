@@ -1,11 +1,10 @@
 import React from "react";
 import {
-  Image,
   StyleSheet,
   View,
   StatusBar,
   ScrollView,
-  FlatList,
+  Pressable,
 } from "react-native";
 import Text from "../fonts/Text";
 import Carousel from "../components/Carousel";
@@ -112,44 +111,52 @@ function HomeScreen({ navigation }) {
             Best Sellers
           </TextSemiBold>
           <View style={{ flexDirection: "row" }}>
-            <BestSeller
-              imageSource={require("../assets/B1.png")}
-              title="Phaila Hydrating Handmade Soap Bars"
-              rating={4.8}
-              numReviews={1800}
-              oldPrice={599}
-              newPrice={350}
-              discount={30}
-            />
-            <BestSeller
-              imageSource={require("../assets/B1.png")}
-              title="Phaila Hydrating Handmade Soap Bars"
-              rating={4.8}
-              numReviews={1800}
-              oldPrice={599}
-              newPrice={350}
-              discount={30}
-            />
+            <Pressable onPress={() => navigation.navigate("Products")}>
+              <BestSeller
+                imageSource={require("../assets/B1.png")}
+                title="Phaila Hydrating Handmade Soap Bars"
+                rating={4.8}
+                numReviews={1800}
+                oldPrice={599}
+                newPrice={350}
+                discount={30}
+              />
+            </Pressable>
+            <Pressable>
+              <BestSeller
+                imageSource={require("../assets/B1.png")}
+                title="Phaila Hydrating Handmade Soap Bars"
+                rating={4.8}
+                numReviews={1800}
+                oldPrice={599}
+                newPrice={350}
+                discount={30}
+              />
+            </Pressable>
           </View>
           <View style={{ flexDirection: "row" }}>
-            <BestSeller
-              imageSource={require("../assets/B1.png")}
-              title="Phaila Hydrating Handmade Soap Bars"
-              rating={4.8}
-              numReviews={1800}
-              oldPrice={599}
-              newPrice={350}
-              discount={30}
-            />
-            <BestSeller
-              imageSource={require("../assets/B1.png")}
-              title="Phaila Hydrating Handmade Soap Bars"
-              rating={4.8}
-              numReviews={1800}
-              oldPrice={599}
-              newPrice={350}
-              discount={30}
-            />
+            <Pressable>
+              <BestSeller
+                imageSource={require("../assets/B1.png")}
+                title="Phaila Hydrating Handmade Soap Bars"
+                rating={4.8}
+                numReviews={1800}
+                oldPrice={599}
+                newPrice={350}
+                discount={30}
+              />
+            </Pressable>
+            <Pressable>
+              <BestSeller
+                imageSource={require("../assets/B1.png")}
+                title="Phaila Hydrating Handmade Soap Bars"
+                rating={4.8}
+                numReviews={1800}
+                oldPrice={599}
+                newPrice={350}
+                discount={30}
+              />
+            </Pressable>
           </View>
         </View>
         <View style={{ marginBottom: 100 }}></View>
