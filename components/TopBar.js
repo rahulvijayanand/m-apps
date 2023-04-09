@@ -7,8 +7,7 @@ function TopBar() {
   return (
     <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
       <View style={styles.display}>
-        
-        <Text style={{fontSize:28,bottom:3}}>  Explore</Text>
+        <Text style={{ fontSize: 28, bottom: 3 }}> Explore</Text>
       </View>
 
       <View style={{ flexDirection: "row", marginRight: 25 }}>

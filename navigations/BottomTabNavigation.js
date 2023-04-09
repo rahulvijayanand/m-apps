@@ -20,6 +20,7 @@ export default function Navigation() {
           position: "absolute",
           bottom: 20,
           marginHorizontal: 20,
+          borderTopWidth: 0,
           height: 70,
           borderRadius: 35,
           shadowColor: "#000",
