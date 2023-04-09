@@ -1,9 +1,14 @@
 import { View, Text, Image } from "react-native";
-import React from "react";
+import React, { useState } from "react";
 import { Dimensions } from "react-native";
+import { TouchableOpacity } from "react-native-gesture-handler";
 const { width, height } = Dimensions.get("window");
 
 const NotifyMe = () => {
+  const[isnotify,setnotify]=useState(false);
+  const handlepress=()=>{
+    setnotify(!isnotify);
+  }
   return (
     <View
       style={{
@@ -41,10 +46,12 @@ const NotifyMe = () => {
           >
             Antique Collection
           </Text>
+          <TouchableOpacity>
           <Image
             source={require("../assets/Vector-6.png")}
             style={{ width: 24, height: 30, marginRight: 20, marginTop: 18 }}
           />
+          </TouchableOpacity>
         </View>
         <Text style={{ fontSize: 14 ,marginLeft:15,marginTop:15}}>
           Lorem Ipsum is simply dummy text of the printing and typesetting
@@ -54,9 +61,11 @@ const NotifyMe = () => {
           five centuries, but also the leap into electronic typesetting,
           remaining essentially unchanged.
         </Text>
-        <View style={{backgroundColor:"#263d2c",height:50,width:width-80,alignSelf:"center",marginTop:20,borderRadius:10,justifyContent:"center"}}>
-            <Text style={{color:"#92e3a9",fontWeight:"bold",fontSize:18,alignSelf:"center",marginRight:10}}>Notify Me</Text>
+        <TouchableOpacity onPress={handlepress}>
+        <View style={{backgroundColor:!isnotify?"#263d2c":"white",height:50,width:width-80,alignSelf:"center",marginTop:20,borderRadius:10,justifyContent:"center"}}>
+            <Text style={{color:!isnotify?"#92e3a9":"#263d2c",fontWeight:"bold",fontSize:18,alignSelf:"center",marginRight:10}}>{!isnotify?"Notify Me":"You'll Be Notified !"}</Text>
         </View>
+        </TouchableOpacity>
       </View>
     </View>
   );

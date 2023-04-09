@@ -3,15 +3,11 @@ import { Image, StyleSheet, View, TouchableOpacity } from "react-native";
 import Text from "../fonts/Text";
 import ShoppingCartIcon from "../components/cart";
 import TextBold from "../fonts/TextBold";
-
 function TopBar() {
   return (
     <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
       <View style={styles.display}>
-        <Image
-          source={require("../assets/Vector-4.png")}
-          style={styles.icon}
-        />
+        
         <Text style={{fontSize:28,bottom:3}}>  Explore</Text>
       </View>
 
