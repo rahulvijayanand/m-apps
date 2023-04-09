@@ -13,7 +13,9 @@ const categoryimagelist = [
 function CategoriesScreen({ navigation }) {
   return (
     <View style={styles.container}>
-      <Location navigation={navigation} type="location" />
+      <View style={{ marginBottom: 30 }}>
+        <Location navigation={navigation} type="location" />
+      </View>
       <ScrollView showsVerticalScrollIndicator={false}>
         {categoryimagelist.map((item) => (
           <CategoryComponent image={item.image} name={item.name} />

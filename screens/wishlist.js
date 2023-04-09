@@ -6,7 +6,7 @@ import Location from "../components/Location";
 function Wishlist({ navigation }) {
   return (
     <View style={styles.container}>
-      <Location type="wishlist" />
+      <Location navigation={navigation} type="wishlist" />
       <Text>Wishlist!</Text>
     </View>
   );
