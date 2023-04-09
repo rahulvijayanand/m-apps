@@ -17,7 +17,7 @@ import RectangularComponent from "../components/Rectangle";
 import RectD from "../components/DealsRec";
 import BestSeller from "../components/BestSeller";
 
-function HomeScreen() {
+function HomeScreen({ navigation }) {
   const slides = [
     { image: require("../assets/1.png") },
     { image: require("../assets/2.png") },
@@ -70,7 +70,7 @@ function HomeScreen() {
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor={"#92e3a9"} />
-      <Location />
+      <Location navigation={navigation} type="other" />
       <Search />
       <ScrollView showsVerticalScrollIndicator={false}>
         <Carousel slides={slides} />

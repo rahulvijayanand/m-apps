@@ -1,12 +1,22 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import React from "react";
+import { Image, StyleSheet, View } from "react-native";
+import Text from "../fonts/Text";
 
-const wishlist = () => {
+function Wishlist() {
   return (
-    <View>
-      <Text>wishlist</Text>
+    <View style={styles.container}>
+      <Text>Wishlist!</Text>
     </View>
-  )
+  );
 }
 
-export default wishlist
+export default Wishlist;
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+});
