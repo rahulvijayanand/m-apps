@@ -7,9 +7,9 @@ import Location from "../components/Location";
 const Details = [
   { id: 1, title: "Profile", name: require("../assets/Group-301.png") },
   { id: 2, title: "Address", name: require("../assets/Vector-9.png") },
-  { id: 3, title: "Orders", name: require("../assets/Vector-7.png") },
+  { id: 3, title: "Orders", name: require("../assets/Group-1.png") },
   { id: 4, title: "Saved Cards", name: require("../assets/Group-2.png") },
-  { id: 5, title: "Wishlist", name: require("../assets/Vector-2.png") },
+  { id: 5, title: "Wishlist", name: require("../assets/Vector-10.png") },
   {
     id: 6,
     title: "Manage Referrals",

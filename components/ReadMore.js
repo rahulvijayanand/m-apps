@@ -1,9 +1,8 @@
-import { View, Text, Image } from "react-native";
+import { View, Image, TouchableOpacity, Dimensions } from "react-native";
 import { React, useState } from "react";
-import { Dimensions } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
-import { Share, Button } from "react-native";
 const { width, height } = Dimensions.get("window");
+import Text from "../fonts/Text";
+import TextSemiBold from "../fonts/TextSemiBold";
 
 const ReadMore = () => {
   const [isreadmore, setreadmore] = useState(false);
@@ -15,21 +14,28 @@ const ReadMore = () => {
     <View
       style={{
         backgroundColor: "white",
-        height: isreadmore ? height : height * 0.7,
+        height: isreadmore ? height * 0.84 : height * 0.64,
         width: width - 50,
         alignSelf: "center",
         marginTop: 30,
         borderWidth: 1,
-        borderColor: "black",
-        borderRadius: 5,
+        borderColor: "#263d2c",
+        borderRadius: 8,
+        shadowColor: "#000",
+        shadowOffset: {
+          width: 0,
+          height: height * 0.01,
+        },
+        shadowOpacity: 0.29,
+        shadowRadius: height * 0.02,
       }}
     >
       <View
         style={{
-          flex: 4,
           borderBottomWidth: 2,
           borderBottomColor: "white",
           justifyContent: "center",
+          marginTop: 20,
         }}
       >
         <Image
@@ -38,7 +44,8 @@ const ReadMore = () => {
             width: width - 80,
             height: 160,
             alignSelf: "center",
-            borderRadius: 5,
+            borderRadius: 8,
+            resizeMode: "contain",
           }}
         />
       </View>
@@ -47,29 +54,37 @@ const ReadMore = () => {
           <Text
             style={{
               color: "#263d2c",
-              fontSize: 24,
-              marginTop: 15,
-              marginLeft: 15,
+              fontSize: 20.5,
+              marginLeft: 20,
+              marginTop: 10,
             }}
           >
             Listen what Anush
-            {"\n"}Thinks About{" "}
-            <Text style={{ fontWeight: "bold" }}>"Phaila"</Text>
+            {"\n"}Thinks About <TextSemiBold>"Phaila"</TextSemiBold>
           </Text>
           <TouchableOpacity>
             <Image
               source={require("../assets/Vector-6.png")}
               style={{
-                width: 24,
-                height: 30,
+                width: 28,
+                height: 28,
                 marginRight: 20,
-                marginTop: 18,
+                alignSelf: "center",
+                resizeMode: "contain",
                 tintColor: "#8c9f92",
+                marginTop: 10,
               }}
             />
           </TouchableOpacity>
         </View>
-        <Text style={{ fontSize: 14, marginLeft: 15, marginTop: 15 }}>
+        <Text
+          style={{
+            fontSize: 14,
+            marginLeft: 20,
+            marginTop: 15,
+            marginRight: 20,
+          }}
+        >
           Lorem Ipsum is simply dummy text of the printing and typesetting
           industry. Lorem Ipsum has been the industry's standard dummy text ever
           since the 1500s, when an unknown printer took a galley of type and
@@ -92,17 +107,17 @@ const ReadMore = () => {
               justifyContent: "center",
             }}
           >
-            <Text
+            <TextSemiBold
               style={{
                 color: "#263d2c",
-                fontWeight: "bold",
+
                 fontSize: 18,
                 alignSelf: "center",
                 marginRight: 10,
               }}
             >
               {isreadmore ? "Read Less" : "Read More"}
-            </Text>
+            </TextSemiBold>
           </View>
         </TouchableOpacity>
       </View>

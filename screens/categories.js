@@ -20,6 +20,7 @@ function CategoriesScreen({ navigation }) {
         {categoryimagelist.map((item) => (
           <CategoryComponent image={item.image} name={item.name} />
         ))}
+        <View style={{ paddingBottom: 100 }}></View>
       </ScrollView>
     </View>
   );

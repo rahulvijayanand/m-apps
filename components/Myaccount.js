@@ -1,6 +1,7 @@
 import * as React from "react";
-import { Text, View, StyleSheet, StatusBar, Image } from "react-native";
+import { View, StyleSheet, StatusBar, Image } from "react-native";
 import { AntDesign, MaterialIcons } from "@expo/vector-icons";
+import Text from "../fonts/Text";
 const Myacc = ({ data }) => {
   const { img } = styles;
   return (
@@ -19,7 +20,9 @@ const Myacc = ({ data }) => {
             <View style={{ flexDirection: "row", alignItems: "center" }}>
               <Image style={img} source={item.name} />
 
-              <Text style={{ marginLeft: "10%" }}>{item.title}</Text>
+              <Text style={{ marginLeft: "10%", fontSize: 17 }}>
+                {item.title}
+              </Text>
             </View>
             <MaterialIcons
               name="keyboard-arrow-right"

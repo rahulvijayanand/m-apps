@@ -13,11 +13,18 @@ const NotifyMe = () => {
     <View
       style={{
         backgroundColor: "#d3f5d9",
-        height: height * 0.65,
+        height: height * 0.69,
         width: width - 50,
         alignSelf: "center",
         marginTop: 10,
         borderRadius: 8,
+        shadowColor: "#000",
+        shadowOffset: {
+          width: 0,
+          height: height * 0.01,
+        },
+        shadowOpacity: 0.29,
+        shadowRadius: height * 0.02,
       }}
     >
       <View
@@ -78,6 +85,16 @@ const NotifyMe = () => {
           five centuries, but also the leap into electronic typesetting,
           remaining essentially unchanged.
         </Text>
+        <TextSemiBold
+          style={{
+            fontSize: 14,
+            marginLeft: 20,
+            marginTop: 10,
+            marginRight: 20,
+          }}
+        >
+          #comingsoon #antiques
+        </TextSemiBold>
         <TouchableOpacity onPress={handlepress}>
           <View
             style={{
@@ -85,22 +102,21 @@ const NotifyMe = () => {
               height: 50,
               width: width - 80,
               alignSelf: "center",
-              marginTop: 20,
+              marginTop: 15,
               borderRadius: 10,
               justifyContent: "center",
             }}
           >
-            <Text
+            <TextSemiBold
               style={{
                 color: !isnotify ? "#92e3a9" : "#263d2c",
-                fontWeight: "bold",
                 fontSize: 18,
                 alignSelf: "center",
                 marginRight: 10,
               }}
             >
               {!isnotify ? "Notify Me" : "You'll Be Notified !"}
-            </Text>
+            </TextSemiBold>
           </View>
         </TouchableOpacity>
       </View>

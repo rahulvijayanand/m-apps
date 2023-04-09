@@ -1,7 +1,8 @@
-import { View, Text, Image, ImageBackground } from "react-native";
+import { View, ImageBackground, ScrollView, Dimensions } from "react-native";
 import React from "react";
-import { Dimensions } from "react-native";
 const { width, height } = Dimensions.get("window");
+import TextSemiBold from "../fonts/TextSemiBold";
+import Text from "../fonts/Text";
 const CategoryComponent = (props) => {
   return (
     <ImageBackground
@@ -14,9 +15,8 @@ const CategoryComponent = (props) => {
       source={props.image}
       imageStyle={{ resizeMode: "cover", borderRadius: 15 }}
     >
-      <Text
+      <TextSemiBold
         style={{
-          fontWeight: "bold",
           fontSize: 28,
           margin: 10,
           marginLeft: 15,
@@ -24,7 +24,7 @@ const CategoryComponent = (props) => {
         }}
       >
         {props.name}
-      </Text>
+      </TextSemiBold>
     </ImageBackground>
   );
 };
