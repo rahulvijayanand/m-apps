@@ -128,18 +128,20 @@ function Location({ navigation, type, text }) {
   const renderOther = (title) => {
     return (
       <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
-        <TouchableOpacity
-          activeOpacity={0.4}
-          onPress={() => navigation.goBack()}
-          style={{ flexDirection: "row" }}
-        >
-          <Image
-            source={require("../assets/Vector-4.png")}
-            style={[
-              styles.icon,
-              { width: 26, height: 26, alignSelf: "center" },
-            ]}
-          />
+        <View style={{ flexDirection: "row" }}>
+          <TouchableOpacity
+            activeOpacity={0.4}
+            onPress={() => navigation.goBack()}
+            style={{ flexDirection: "row" }}
+          >
+            <Image
+              source={require("../assets/Vector-4.png")}
+              style={[
+                styles.icon,
+                { width: 26, height: 26, alignSelf: "center" },
+              ]}
+            />
+          </TouchableOpacity>
           <Text
             style={[
               styles.font,
@@ -148,7 +150,7 @@ function Location({ navigation, type, text }) {
           >
             {title}
           </Text>
-        </TouchableOpacity>
+        </View>
       </View>
     );
   };
