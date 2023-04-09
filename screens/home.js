@@ -70,7 +70,7 @@ function HomeScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor={"#92e3a9"} />
-      <Location navigation={navigation} type="other" />
+      <Location navigation={navigation} type="location" />
       <Search />
       <ScrollView showsVerticalScrollIndicator={false}>
         <Carousel slides={slides} />

@@ -4,7 +4,7 @@ import Text from "../fonts/Text";
 import ShoppingCartIcon from "../components/cart";
 import TextBold from "../fonts/TextBold";
 
-function Location({ navigation, type }) {
+function Location({ navigation, type, text }) {
   const renderLocation = () => {
     return (
       <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
@@ -158,7 +158,7 @@ function Location({ navigation, type }) {
       {type === "location" && renderLocation()}
       {type === "wishlist" && renderWishlist()}
       {type === "explore" && renderExplore()}
-      {type === "other" && renderOther("Your Location")}
+      {type === "other" && renderOther(text)}
     </View>
   );
 }

@@ -1,10 +1,12 @@
 import React from "react";
-import { Image, StyleSheet, View } from "react-native";
+import { StyleSheet, View, StatusBar } from "react-native";
 import Text from "../fonts/Text";
+import Location from "../components/Location";
 
-function Wishlist() {
+function Wishlist({ navigation }) {
   return (
     <View style={styles.container}>
+      <Location type="wishlist" />
       <Text>Wishlist!</Text>
     </View>
   );
@@ -14,9 +16,8 @@ export default Wishlist;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    height: "100%",
+    paddingTop: StatusBar.currentHeight + 10,
   },
 });

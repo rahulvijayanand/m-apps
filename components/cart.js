@@ -1,6 +1,6 @@
 import React from "react";
 import { View, Image, StyleSheet, TouchableOpacity } from "react-native";
-import TextSemiBold from "../fonts/TextSemiBold"
+import TextSemiBold from "../fonts/TextSemiBold";
 
 const ShoppingCartIcon = ({ itemsInCart }) => {
   return (
