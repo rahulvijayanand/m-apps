@@ -1,10 +1,27 @@
-import { View, Image, TouchableOpacity, Dimensions } from "react-native";
+import { View, Image, TouchableOpacity, Dimensions, Share } from "react-native";
 import React, { useState } from "react";
 const { width, height } = Dimensions.get("window");
 import Text from "../fonts/Text";
 import TextSemiBold from "../fonts/TextSemiBold";
 
 const NotifyMe = () => {
+  const onShare = async () => {
+    try {
+      const result = await Share.share({
+        message: "Share Functionality Testing",
+      });
+      if (result.action === Share.sharedAction) {
+        if (result.activityType) {
+          // shared with activity type of result.activityType
+        } else {
+          // shared
+        }
+      } else if (result.action === Share.dismissedAction) {
+        // dismissed
+      }
+    } catch (error) {}
+  };
+  
   const [isnotify, setnotify] = useState(false);
   const handlepress = () => {
     setnotify(!isnotify);
@@ -57,7 +74,7 @@ const NotifyMe = () => {
           >
             Antique Collection
           </TextSemiBold>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={onShare} activeOpacity={0.4}>
             <Image
               source={require("../assets/Vector-6.png")}
               style={{
@@ -95,7 +112,7 @@ const NotifyMe = () => {
         >
           #comingsoon #antiques
         </TextSemiBold>
-        <TouchableOpacity onPress={handlepress}>
+        <TouchableOpacity onPress={handlepress} activeOpacity={0.4}>
           <View
             style={{
               backgroundColor: !isnotify ? "#263d2c" : "white",

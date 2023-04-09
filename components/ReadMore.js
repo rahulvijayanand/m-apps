@@ -1,4 +1,4 @@
-import { View, Image, TouchableOpacity, Dimensions } from "react-native";
+import { View, Image, TouchableOpacity, Dimensions, Share } from "react-native";
 import { React, useState } from "react";
 const { width, height } = Dimensions.get("window");
 import Text from "../fonts/Text";
@@ -8,6 +8,23 @@ const ReadMore = () => {
   const [isreadmore, setreadmore] = useState(false);
   const handlepress = () => {
     setreadmore(!isreadmore);
+  };
+
+  const onShare = async () => {
+    try {
+      const result = await Share.share({
+        message: "Share Functionality Testing",
+      });
+      if (result.action === Share.sharedAction) {
+        if (result.activityType) {
+          // shared with activity type of result.activityType
+        } else {
+          // shared
+        }
+      } else if (result.action === Share.dismissedAction) {
+        // dismissed
+      }
+    } catch (error) {}
   };
 
   return (
@@ -62,7 +79,7 @@ const ReadMore = () => {
             Listen what Anush
             {"\n"}Thinks About <TextSemiBold>"Phaila"</TextSemiBold>
           </Text>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={onShare} activeOpacity={0.4}>
             <Image
               source={require("../assets/Vector-6.png")}
               style={{
@@ -95,7 +112,7 @@ const ReadMore = () => {
             ? "..."
             : ".Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged"}
         </Text>
-        <TouchableOpacity onPress={handlepress}>
+        <TouchableOpacity onPress={handlepress} activeOpacity={0.4}>
           <View
             style={{
               backgroundColor: !isreadmore ? "#92e3a9" : "#eeeeee",
