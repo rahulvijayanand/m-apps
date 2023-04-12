@@ -1,22 +1,21 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import ExploreScreen from "../screens/explore";
 import Wishlist from "../screens/wishlist";
-import HomeScreen from "../screens/home";
+import CategoriesScreen from "../screens/categories";
+import ProductScreen from "../screens/Product";
 const Stack = createStackNavigator();
 
-function ExploreStack() {
+function CategoryStack() {
   return (
     <Stack.Navigator
       screenOptions={{
         headerShown: false,
       }}
     >
-      <Stack.Screen name="Explore Screen" component={ExploreScreen} />
+      <Stack.Screen name="HomeScreen" component={CategoriesScreen} />
       <Stack.Screen name="WishList" component={Wishlist} />
-      <Stack.Screen name="Home Screen" component={HomeScreen} />
     </Stack.Navigator>
   );
 }
 
-export default ExploreStack;
+export default CategoryStack;

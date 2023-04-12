@@ -30,10 +30,10 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   star: {
-    width: 25,
-    height: 25,
+    width: 23,
+    height: 23,
     resizeMode: "contain",
-    marginRight: 2.5,
+    marginRight: 5,
   },
 });
 

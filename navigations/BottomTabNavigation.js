@@ -2,11 +2,10 @@ import React from "react";
 import { Image, StyleSheet, View } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Text from "../fonts/Text";
-import HomeScreen from "../screens/home";
 import HomeStack from "./HomeNavigation";
 import AccountScreen from "../screens/account";
-import ExploreScreen from "../screens/explore";
 import CategoriesScreen from "../screens/categories";
+import CategoryStack from "./CategoryNavigation";
 import ExploreStack from "./ExploreNavigation";
 
 const Tab = createBottomTabNavigator();
@@ -105,7 +104,7 @@ export default function Navigation() {
 
       <Tab.Screen
         name={"Categories"}
-        component={CategoriesScreen}
+        component={CategoryStack}
         options={{
           tabBarIcon: ({ focused }) => (
             <View style={styles.Centre}>

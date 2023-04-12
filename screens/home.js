@@ -122,7 +122,7 @@ function HomeScreen({ navigation }) {
                 discount={30}
               />
             </Pressable>
-            <Pressable>
+            <Pressable onPress={() => navigation.navigate("Products")}>
               <BestSeller
                 imageSource={require("../assets/B1.png")}
                 title="Phaila Hydrating Handmade Soap Bars"
@@ -135,7 +135,7 @@ function HomeScreen({ navigation }) {
             </Pressable>
           </View>
           <View style={{ flexDirection: "row" }}>
-            <Pressable>
+            <Pressable onPress={() => navigation.navigate("Products")}>
               <BestSeller
                 imageSource={require("../assets/B1.png")}
                 title="Phaila Hydrating Handmade Soap Bars"
@@ -146,7 +146,7 @@ function HomeScreen({ navigation }) {
                 discount={30}
               />
             </Pressable>
-            <Pressable>
+            <Pressable onPress={() => navigation.navigate("Products")}>
               <BestSeller
                 imageSource={require("../assets/B1.png")}
                 title="Phaila Hydrating Handmade Soap Bars"
