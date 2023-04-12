@@ -1,138 +1,125 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+import { View, Text, TouchableOpacity, FlatList } from "react-native";
 
-const ColorDropdown = ({ colors, code }) => {
-  const [selectedColor, setSelectedColor] = useState(colors[0]);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+const options = [
+  { name: "Red", color: "#FF0000", inStock: true },
+  { name: "Green", color: "#00FF00", inStock: false },
+  { name: "Blue", color: "#0000FF", inStock: true },
+  { name: "Yellow", color: "#FFFF00", inStock: true },
+];
 
-  const handleColorSelect = (color) => {
-    setSelectedColor(color);
-    setDropdownOpen(false);
+const Option = ({ name, color }) => (
+  <View style={{ flexDirection: "row", alignItems: "center" }}>
+    <View
+      style={{
+        width: 15,
+        height: 15,
+        borderRadius: 7.5,
+        backgroundColor: color,
+        marginRight: 5,
+      }}
+    ></View>
+    <Text style={{ fontSize: 16, color: "#333" }}>{name}</Text>
+  </View>
+);
+
+const Dropdown = () => {
+  const [visible, setVisible] = useState(false);
+  const [selectedOption, setSelectedOption] = useState(options[0]); // Set the first option as selected by default
+
+  const toggleDropdown = () => {
+    setVisible(!visible);
   };
 
-  const columns = 2; // number of columns
-  const rows = Math.ceil(colors.length / columns); // number of rows
+  const handleOptionSelect = (option) => {
+    setSelectedOption(option);
+    setVisible(false);
+  };
+
+  const renderItem = ({ item, index }) => (
+    <TouchableOpacity
+      style={{
+        flex: 1,
+        margin: 5,
+        padding: 10,
+        backgroundColor:
+          item.name === selectedOption.name ? "#91e2a8" : "#e9f9ee",
+        borderRadius: 5,
+        shadowColor: "#000",
+        shadowOffset: {
+          width: 0,
+          height: 1,
+        },
+        shadowOpacity: 0.2,
+        shadowRadius: 1.41,
+
+        elevation: 2,
+        position: "relative",
+      }}
+      onPress={() => item.inStock && handleOptionSelect(item)}
+      disabled={!item.inStock}
+    >
+      <Option name={item.name} color={item.color} />
+      {!item.inStock && (
+        <View
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: "rgba(255, 255, 255, 0.5)",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        ></View>
+      )}
+    </TouchableOpacity>
+  );
 
   return (
-    <View style={styles.container}>
-      <TouchableOpacity
-        style={styles.selectedColor}
-        onPress={() => setDropdownOpen(!dropdownOpen)}
-      >
+    <View style={{ margin: 20, backgroundColor: "#e9f9ee" }}>
+      <TouchableOpacity onPress={toggleDropdown}>
         <View
-          style={[styles.colorCircle, { backgroundColor: selectedColor.code }]}
-        />
-        <Text style={styles.colorName}>{selectedColor.name} </Text>
-        <Text style={{ alignSelf: "center" }}>(Selected variant)</Text>
+          style={{
+            flexDirection: "row",
+            alignItems: "center",
+            backgroundColor: "#e9f9ee",
+            padding: 10,
+            borderRadius: 5,
+          }}
+        >
+          <View
+            style={{
+              width: 15,
+              height: 15,
+              borderRadius: 7.5,
+              backgroundColor: selectedOption.color,
+              marginRight: 5,
+            }}
+          ></View>
+          <Text style={{ fontSize: 18, fontWeight: "bold", color: "#333" }}>
+            {selectedOption.name}
+          </Text>
+          <View style={{ flex: 1, alignItems: "flex-end" }}>
+            <Text style={{ fontSize: 18, color: "#333" }}>
+              {visible ? "▲" : "▼"}
+            </Text>
+          </View>
+        </View>
       </TouchableOpacity>
-      {dropdownOpen && (
-        <View style={styles.dropdownContainer}>
-          {[...Array(rows)].map((_, rowIndex) => (
-            <View style={styles.row} key={rowIndex}>
-              {[...Array(columns)].map((_, columnIndex) => {
-                const colorIndex = rowIndex * columns + columnIndex;
-                if (colorIndex >= colors.length) {
-                  return <View key={columnIndex} style={styles.colorOption} />;
-                } else {
-                  const color = colors[colorIndex];
-                  return (
-                    <TouchableOpacity
-                      key={columnIndex}
-                      style={[
-                        styles.colorOption,
-                        color.color === selectedColor.color &&
-                          styles.activeColorOption,
-                        color.disabled && styles.disabledColorOption,
-                      ]}
-                      onPress={() => handleColorSelect(color)}
-                      disabled={color.disabled}
-                    >
-                      <View
-                        style={[
-                          styles.colorCircle,
-                          { backgroundColor: color.code },
-                          color.disabled && styles.disabledColorCircle,
-                        ]}
-                      />
-                      <Text
-                        style={[
-                          styles.colorName,
-                          color.color === selectedColor.color &&
-                            styles.activeColorName,
-                          color.disabled && styles.disabledColorName,
-                        ]}
-                      >
-                        {color.name}
-                      </Text>
-                      {color.disabled && (
-                        <Text style={styles.outOfStock}>Out of Stock</Text>
-                      )}
-                    </TouchableOpacity>
-                  );
-                }
-              })}
-            </View>
-          ))}
+      {visible && (
+        <View style={{ marginTop: 10 }}>
+          <FlatList
+            data={options}
+            numColumns={2}
+            renderItem={renderItem}
+            keyExtractor={(item) => item.name}
+          />
         </View>
       )}
     </View>
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    width: "100%",
-    justifyContent: "center",
-  },
-  selectedColor: {
-    flexDirection: "row",
-    alignItems: "center",
-    marginBottom: 10,
-  },
-  colorCircle: {
-    width: 20,
-    height: 20,
-    borderRadius: 10,
-    marginRight: 10,
-  },
-  colorName: {
-    fontSize: 16,
-  },
-  dropdownContainer: {
-    width: "100%",
-    marginTop: 10,
-    borderWidth: 1,
-    borderColor: "grey",
-    borderRadius: 5,
-    overflow: "hidden",
-  },
-  row: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-  },
-  colorOption: {
-    flex: 1,
-    paddingVertical: 10,
-    paddingHorizontal: 5,
-    flexDirection: "row",
-  },
-  activeColorOption: {
-    backgroundColor: "lightgrey",
-  },
-  disabledColorOption: {
-    opacity: 0.5,
-  },
-  disabledColorCircle: {
-    opacity: 0.5,
-  },
-  disabledColorName: {
-    opacity: 0.5,
-  },
-  outOfStock: {
-    marginLeft: 10,
-    color: "red",
-    fontSize: 12,
-  },
-});
-
-export default ColorDropdown;
+export default Dropdown;

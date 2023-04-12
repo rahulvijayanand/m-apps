@@ -2,6 +2,7 @@ import React from "react";
 import { View, StyleSheet } from "react-native";
 import ImageCarousel from "../components/ImageCarousel";
 import ColorDropdown from "../components/Dropdown";
+import RatingComponent from "../components/RatingLarge";
 
 const ProductScreen = ({ navigation }) => {
   const images = [
@@ -10,17 +11,11 @@ const ProductScreen = ({ navigation }) => {
     require("../assets/A3.png"),
   ];
 
-  const colors = [
-    { name: "Red", code: "#FF0000", inStock: true },
-    { name: "Green", code: "#00FF00", inStock: false },
-    { name: "Blue", code: "#0000FF", inStock: true },
-    { name: "Yellow", code: "#FFFF00", inStock: true },
-  ];
-
   return (
     <View style={styles.container}>
       <ImageCarousel images={images} />
-      <ColorDropdown colors={colors} />
+      <RatingComponent rating={4.5} />
+      <ColorDropdown />
     </View>
   );
 };
@@ -28,6 +23,7 @@ const ProductScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     height: "100%",
+    backgroundColor: "#fff",
   },
 });
 
