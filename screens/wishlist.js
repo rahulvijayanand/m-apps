@@ -14,7 +14,7 @@ const wishlistcop = [
     oldPrice: 599,
     newPrice: 350,
     discount: 30,
-    colors: ["#FF5733", "#33FFA5", "#3361FF", "#FF33E9", "#FFC233"],
+    colors: ["#9747FF", "#FBBC05", "#1e1e1e", "#FF33E9", "#FFC233"],
     type: "best",
   },
   {
@@ -25,7 +25,7 @@ const wishlistcop = [
     oldPrice: 599,
     newPrice: 350,
     discount: 30,
-    colors: ["#FF5733", "#33FFA5", "#3361FF", "#FF33E9", "#FFC233"],
+    colors: ["#9747FF", "#FBBC05", "#1e1e1e", "#FF33E9", "#FFC233"],
   },
   {
     imageSource: require("../assets/B1.png"),
@@ -35,7 +35,7 @@ const wishlistcop = [
     oldPrice: 599,
     newPrice: 350,
     discount: 30,
-    colors: ["#FF5733", "#33FFA5", "#3361FF", "#FF33E9", "#FFC233"],
+    colors: ["#9747FF", "#FBBC05", "#1e1e1e", "#FF33E9", "#FFC233"],
   },
   {
     imageSource: require("../assets/B1.png"),
@@ -45,7 +45,7 @@ const wishlistcop = [
     oldPrice: 599,
     newPrice: 350,
     discount: 30,
-    colors: ["#FF5733", "#33FFA5", "#3361FF", "#FF33E9", "#FFC233"],
+    colors: ["#9747FF", "#FBBC05", "#1e1e1e", "#FF33E9", "#FFC233"],
     type: "best",
   },
   {
@@ -56,7 +56,7 @@ const wishlistcop = [
     oldPrice: 599,
     newPrice: 350,
     discount: 30,
-    colors: ["#FF5733", "#33FFA5", "#3361FF", "#FF33E9", "#FFC233"],
+    colors: ["#9747FF", "#FBBC05", "#1e1e1e", "#FF33E9", "#FFC233"],
   },
 ];
 
