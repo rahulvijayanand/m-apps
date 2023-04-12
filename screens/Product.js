@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   Share,
   Image,
+  Dimensions,
 } from "react-native";
 import ImageCarousel from "../components/ImageCarousel";
 import ColorDropdown from "../components/Dropdown";
@@ -13,6 +14,13 @@ import RatingComponent from "../components/RatingLarge";
 import ImageTextGrid from "../components/Productsdisplay";
 import Text from "../fonts/Text";
 import TextSemiBold from "../fonts/TextSemiBold";
+import DeliveryProd from "../components/DeliveryProducts";
+import LikeButton from "../components/LikeButton";
+import SquareComponent from "../components/SquareProduct";
+import ProdComponent from "../components/ProdDesc";
+import CustomerReviews from "../components/Reviews";
+
+const { width, height } = Dimensions.get("window");
 
 const ProductScreen = ({ navigation }) => {
   const images = [
@@ -27,6 +35,48 @@ const ProductScreen = ({ navigation }) => {
     { image: require("../assets/quality.png"), text: "Quality Checked" },
     { image: require("../assets/happy-face.png"), text: "8k Happy Customers" },
   ];
+
+  const data = [
+    {
+      title: "Cashback ",
+      text: "Apply now & get ₹300 back + rewards worth ₹1500 + 3% back on Amazon Pay ICICI Bank credit card . ",
+    },
+    {
+      title: "No Cost EMI",
+      text: "No Cost EMI on select cards for orders above ₹3000 DetailsNo Cost EMI:",
+    },
+  ];
+
+  const data2 = [
+    {
+      title: "Product Detail 1",
+      text: "Description",
+    },
+    {
+      title: "Product Detail 1",
+      text: "Description",
+    },
+    {
+      title: "Product Detail 1",
+      text: "Description",
+    },
+    {
+      title: "Product Detail 1",
+      text: "Description",
+    },
+    {
+      title: "Product Detail 1",
+      text: "Description",
+    },
+  ];
+
+  const ratings = {
+    5: 458,
+    4: 387,
+    3: 86,
+    2: 24,
+    1: 43,
+  };
 
   const onShare = async () => {
     try {
@@ -48,7 +98,7 @@ const ProductScreen = ({ navigation }) => {
   const rating = 4.8;
 
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <ImageCarousel images={images} />
       <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
         <TextSemiBold
@@ -129,6 +179,56 @@ const ProductScreen = ({ navigation }) => {
         <ColorDropdown />
       </View>
       <ImageTextGrid items={items} />
+      <View style={{ marginTop: 20 }}>
+        <DeliveryProd />
+      </View>
+      <View style={{ flexDirection: "row", marginLeft: 20, marginRight: 20 }}>
+        <TouchableOpacity activeOpacity={0.5} style={styles.cart}>
+          <TextSemiBold
+            style={{
+              fontSize: 16,
+              color: "#91e2a8",
+            }}
+          >
+            Add to Cart
+          </TextSemiBold>
+        </TouchableOpacity>
+
+        <View style={styles.like}>
+          <LikeButton />
+        </View>
+      </View>
+      <View style={{ backgroundColor: "#f7f7f7", marginTop: 40 }}>
+        <TextSemiBold style={{ fontSize: 21, marginLeft: 20, marginTop: 20 }}>
+          Offers
+        </TextSemiBold>
+        <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
+          {data.map((square, index) => (
+            <SquareComponent
+              key={index}
+              title={square.title}
+              text={square.text}
+            />
+          ))}
+        </ScrollView>
+      </View>
+      <View style={{ marginTop: 40, marginLeft: 20, marginRight: 20 }}>
+        <View
+          style={{
+            backgroundColor: "#e9f9ee",
+            borderRadius: 15,
+            paddingTop: 20,
+            paddingBottom: 20,
+          }}
+        >
+          {data2.map((item, index) => (
+            <ProdComponent key={index} title={item.title} text={item.text} />
+          ))}
+        </View>
+      </View>
+      <View>
+        <CustomerReviews totalReviews={1088} ratings={ratings} />
+      </View>
       <View style={{ marginBottom: 100 }}></View>
     </ScrollView>
   );
@@ -138,6 +238,25 @@ const styles = StyleSheet.create({
   container: {
     height: "100%",
     backgroundColor: "#fff",
+  },
+  cart: {
+    backgroundColor: "#263d2c",
+    width: width * 0.751,
+    height: height * 0.055,
+    borderRadius: height * 0.01,
+    justifyContent: "center",
+    alignItems: "center",
+    marginTop: height * 0.04,
+  },
+  like: {
+    backgroundColor: "#c7f0d2",
+    height: height * 0.055,
+    width: height * 0.055,
+    marginTop: height * 0.04,
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: height * 0.01,
+    marginLeft: width * 0.029,
   },
 });
 

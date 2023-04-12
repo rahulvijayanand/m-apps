@@ -122,14 +122,13 @@ const Dropdown = () => {
         </View>
       </TouchableOpacity>
       {visible && (
-        <View style={{ marginTop: 10 }}>
-          <FlatList
-            data={options}
-            numColumns={2}
-            renderItem={renderItem}
-            keyExtractor={(item) => item.name}
-          />
-        </View>
+        <FlatList
+          style={{ borderTopWidth: 1, borderTopColor: "#c2e3c8" }}
+          data={options}
+          numColumns={2}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.name}
+        />
       )}
     </View>
   );
