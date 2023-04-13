@@ -1,26 +1,21 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, StyleSheet } from "react-native";
+import Text from "../fonts/Text";
+import TextSemiBold from "../fonts/TextSemiBold";
 const CustomerReviews = ({ totalReviews, ratings }) => {
   const maxRatingCount = Math.max(...Object.values(ratings));
   const ratingCounts = Object.entries(ratings);
-
-  // Divide ratingCounts into two arrays, first with top 5 and second with rest of the ratings
   const topFiveRatings = ratingCounts
-    .sort((a, b) => b[0] - a[0]) // Sort in descending order of rating
+    .sort((a, b) => b[0] - a[0])
     .slice(0, 5);
-  const remainingRatings = ratingCounts.slice(5);
 
   return (
     <View style={styles.container}>
-      <Text style={styles.totalReviews}>{totalReviews} Reviews</Text>
       <View style={styles.ratingsContainer}>
         <View style={styles.topRatingsContainer}>
           {topFiveRatings.map(([rating, count]) => (
             <View key={rating} style={styles.ratingContainer}>
-              <View style={styles.ratingCountContainer}>
-                <Text style={styles.ratingCount}>{count}</Text>
-                <Text style={styles.ratingCountLabel}>/ {totalReviews}</Text>
-              </View>
+              <Text style={styles.ratingCount}>{rating}</Text>
               <View style={styles.ratingLineContainer}>
                 <View style={[styles.totalReviewsLine, { width: "100%" }]} />
                 <View
@@ -30,28 +25,7 @@ const CustomerReviews = ({ totalReviews, ratings }) => {
                   ]}
                 />
               </View>
-              <Text style={styles.rating}>{rating}</Text>
-            </View>
-          ))}
-        </View>
-        <View style={styles.remainingRatingsContainer}>
-          {remainingRatings.map(([rating, count]) => (
-            <View key={rating} style={styles.ratingContainer}>
-              <View style={styles.ratingCountContainer}>
-                <Text style={styles.ratingCount}>{count}</Text>
-                <Text style={styles.ratingCountLabel}>/ {totalReviews}</Text>
-              </View>
-              <View style={styles.ratingLineContainer}>
-                <View style={[styles.totalReviewsLine, { width: "100%" }]} />
-                <View
-                  style={[
-                    styles.mostDoneLine,
-                    { width: (count / totalReviews) * 100 + "%" },
-                  ]}
-                />
-              </View>
-
-              <Text style={styles.rating}>{rating}</Text>
+              <Text style={styles.rating}>{count}</Text>
             </View>
           ))}
         </View>
@@ -62,7 +36,7 @@ const CustomerReviews = ({ totalReviews, ratings }) => {
 
 const styles = StyleSheet.create({
   container: {
-    marginHorizontal: 10,
+    marginHorizontal: 20,
     marginVertical: 20,
   },
   totalReviews: {
@@ -79,24 +53,20 @@ const styles = StyleSheet.create({
   ratingContainer: {
     alignItems: "center",
     marginBottom: 10,
-  },
-  ratingCountContainer: {
     flexDirection: "row",
-    alignItems: "baseline",
   },
   ratingCount: {
     fontSize: 20,
-    fontWeight: "bold",
   },
   ratingCountLabel: {
     fontSize: 12,
   },
   ratingLineContainer: {
     height: 5,
-    width: "100%",
-    backgroundColor: "#F1F1F1",
+    width: "75%",
     marginBottom: 5,
-    position: "relative",
+    marginLeft: 15,
+    marginRight: 15,
   },
   totalReviewsLine: {
     height: "100%",
@@ -104,19 +74,14 @@ const styles = StyleSheet.create({
   },
   mostDoneLine: {
     height: "100%",
-    backgroundColor: "#FFC107",
+    backgroundColor: "#92e3a9",
     position: "absolute",
     left: 0,
     top: 0,
     bottom: 0,
   },
-  ratingLine: {
-    height: "100%",
-    backgroundColor: "#FFC107",
-  },
   rating: {
-    fontSize: 14,
-    color: "#999",
+    fontSize: 10,
   },
 });
 
