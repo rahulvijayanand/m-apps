@@ -183,7 +183,6 @@ const styles = StyleSheet.create({
   },
   font: {
     fontSize: 10.5,
-    color: "#252525",
   },
 });
 

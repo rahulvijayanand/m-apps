@@ -18,7 +18,7 @@ import DeliveryProd from "../components/DeliveryProducts";
 import LikeButton from "../components/LikeButton";
 import SquareComponent from "../components/SquareProduct";
 import ProdComponent from "../components/ProdDesc";
-import CustomerReviews from "../components/Reviews";
+import ReviewComp from "../components/ReviewsComp";
 
 const { width, height } = Dimensions.get("window");
 
@@ -70,14 +70,6 @@ const ProductScreen = ({ navigation }) => {
     },
   ];
 
-  const ratings = {
-    5: 458,
-    4: 387,
-    3: 86,
-    2: 24,
-    1: 43,
-  };
-
   const onShare = async () => {
     try {
       const result = await Share.share({
@@ -126,7 +118,7 @@ const ProductScreen = ({ navigation }) => {
         </TouchableOpacity>
       </View>
       <View style={{ marginLeft: 20, flexDirection: "row", marginTop: 5 }}>
-        <RatingComponent rating={rating} />
+        <RatingComponent rating={rating} starSize={23}/>
         <TextSemiBold style={{ alignSelf: "flex-end", marginLeft: 5 }}>
           {rating}/5
         </TextSemiBold>
@@ -226,8 +218,15 @@ const ProductScreen = ({ navigation }) => {
           ))}
         </View>
       </View>
-      <View>
-        <CustomerReviews totalReviews={1088} ratings={ratings} />
+      <View
+        style={{
+          paddingTop: 20,
+          paddingLeft: 20,
+          paddingRight: 20,
+          marginTop: 20,
+        }}
+      >
+        <ReviewComp />
       </View>
       <View style={{ marginBottom: 100 }}></View>
     </ScrollView>
