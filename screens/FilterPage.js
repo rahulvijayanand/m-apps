@@ -117,13 +117,13 @@ export default function PriceRangeSlider({ navigation }) {
       <View style={styles.colorContainer}>
         {COLOR_OPTIONS.slice(3).map((item, index) => (
           <TouchableOpacity
-            key={index}
+            key={index + 3}
             style={[
               styles.colorOption,
-              colorIndex === index && styles.activeColorOption,
+              colorIndex === index + 3 && styles.activeColorOption,
               { backgroundColor: item.color },
             ]}
-            onPress={() => handleColorOptionPress(index)}
+            onPress={() => handleColorOptionPress(index + 3)}
           >
             <Text>{item.label}</Text>
           </TouchableOpacity>
@@ -196,7 +196,7 @@ const styles = StyleSheet.create({
     marginLeft: 10,
   },
   activeColorOption: {
-    borderWidth: 3,
-    borderColor: "#FF0000",
+    borderWidth: 1,
+    borderColor: "#000",
   },
 });
