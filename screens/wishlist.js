@@ -73,7 +73,6 @@ function Wishlist({ navigation }) {
       </View>
       <ScrollView showsVerticalScrollIndicator={false}>
         {wishlistcop.map((item) => (
-          <Pressable>
             <WishlistComp
               imageSource={item.imageSource}
               title={item.title}
@@ -84,8 +83,9 @@ function Wishlist({ navigation }) {
               discount={item.discount}
               colors={item.colors}
               type={item.type}
+              navigation={navigation}
+              navi={"Products"}
             />
-          </Pressable>
         ))}
         <View style={{ marginBottom: 85 }}></View>
       </ScrollView>

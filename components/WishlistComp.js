@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   Dimensions,
   StyleSheet,
+  Pressable,
 } from "react-native";
 import Text from "../fonts/Text";
 import TextSemiBold from "../fonts/TextSemiBold";
@@ -23,147 +24,151 @@ const RectangularComponent = ({
   discount,
   colors = [],
   type,
+  navi,
+  navigation,
 }) => {
   const availableColors = colors.slice(0, 3);
   const moreColors = colors.slice(3);
   return (
-    <View
-      style={{
-        width: "100%",
-        height: Dimensions.get("window").height / 4.3,
-        backgroundColor: "#f6f6f6",
-        justifyContent: "center",
-        paddingLeft: 15,
-        marginRight: 15,
-        marginBottom:15,
-      }}
-    >
-      <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
-        {type === "best" && (
-          <View
-            style={{
-              width: 80,
-              height: 20,
-              backgroundColor: "#91e2a8",
-              alignItems: "center",
-              justifyContent: "center",
-              borderRadius: 20,
-              position: "absolute",
-              zIndex: 1,
-              top: 9,
-              left: 5,
-            }}
-          >
-            <TextSemiBold style={{ fontSize: 11 }}>Best Seller</TextSemiBold>
-          </View>
-        )}
-        <Image
-          source={imageSource}
-          style={{ width: "40%", height: "100%", borderRadius: 8 }}
-          resizeMode="cover"
-        />
-        <View style={{ width: "60%", paddingHorizontal: 10 }}>
-          <TextSemiBold style={{ fontSize: 12, width: 150 }}>
-            {title}
-          </TextSemiBold>
-          <View style={{ flexDirection: "row" }}>
-            <RatingComponent rating={ratings} />
-            <TextSemiBold style={{ fontSize: 11.5, marginTop: 10 }}>
-              {ratings}/5
-            </TextSemiBold>
-            <Text
+    <Pressable onPress={() => navigation.navigate(navi)}>
+      <View
+        style={{
+          width: "100%",
+          height: Dimensions.get("window").height / 4.3,
+          backgroundColor: "#f6f6f6",
+          justifyContent: "center",
+          paddingLeft: 15,
+          marginRight: 15,
+          marginBottom: 15,
+        }}
+      >
+        <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
+          {type === "best" && (
+            <View
               style={{
-                fontSize: 11.5,
-                marginTop: 10,
-                color: "#b2c4b8",
-                marginLeft: 2.5,
-              }}
-            >
-              ({numReviews})
-            </Text>
-          </View>
-          <View style={{ flexDirection: "row" }}>
-            <Text
-              style={{
-                fontSize: 11.5,
-                marginTop: 10.5,
-                color: "#b2c4b8",
-                textDecorationLine: "line-through",
+                width: 80,
+                height: 20,
+                backgroundColor: "#91e2a8",
+                alignItems: "center",
                 justifyContent: "center",
+                borderRadius: 20,
+                position: "absolute",
+                zIndex: 1,
+                top: 9,
+                left: 5,
               }}
             >
-              ₹{oldPrice}
-            </Text>
-            <TextSemiBold
-              style={{ fontSize: 12.5, marginTop: 10, marginLeft: 5 }}
-            >
-              ₹{newPrice}
+              <TextSemiBold style={{ fontSize: 11 }}>Best Seller</TextSemiBold>
+            </View>
+          )}
+          <Image
+            source={imageSource}
+            style={{ width: "40%", height: "100%", borderRadius: 8 }}
+            resizeMode="cover"
+          />
+          <View style={{ width: "60%", paddingHorizontal: 10 }}>
+            <TextSemiBold style={{ fontSize: 12, width: 150 }}>
+              {title}
             </TextSemiBold>
-            <TextSemiBold
-              style={{
-                fontSize: 11.5,
-                marginTop: 10.5,
-                marginLeft: 5,
-                color: "#91e2a8",
-              }}
-            >
-              {discount}% off
-            </TextSemiBold>
-          </View>
-          <View style={{ flexDirection: "row", marginTop: 10 }}>
-            {availableColors.map((color, index) => (
-              <View
-                key={index}
+            <View style={{ flexDirection: "row" }}>
+              <RatingComponent rating={ratings} />
+              <TextSemiBold style={{ fontSize: 11.5, marginTop: 10 }}>
+                {ratings}/5
+              </TextSemiBold>
+              <Text
                 style={{
-                  width: 12.5,
-                  height: 12.5,
-                  borderRadius: 12.5,
-                  backgroundColor: color,
-                  marginRight: 10,
-                  borderWidth: 1,
-                  borderColor: "#263d2c",
-                }}
-              />
-            ))}
-            {moreColors.length > 0 && (
-              <TouchableOpacity
-                style={{
-                  width: 12.5,
-                  height: 12.5,
-                  borderRadius: 12.5,
-                  backgroundColor: "white",
-                  marginRight: 10,
-                  justifyContent: "center",
-                  alignItems: "center",
-                  borderWidth: 1,
-                  borderColor: "#263d2c",
+                  fontSize: 11.5,
+                  marginTop: 10,
+                  color: "#b2c4b8",
+                  marginLeft: 2.5,
                 }}
               >
-                <TextSemiBold style={{ fontSize: 6 }}>
-                  +{moreColors.length}
-                </TextSemiBold>
-              </TouchableOpacity>
-            )}
-          </View>
-          <View style={{ flexDirection: "row" }}>
-            <TouchableOpacity activeOpacity={0.5} style={styles.cart}>
+                ({numReviews})
+              </Text>
+            </View>
+            <View style={{ flexDirection: "row" }}>
+              <Text
+                style={{
+                  fontSize: 11.5,
+                  marginTop: 10.5,
+                  color: "#b2c4b8",
+                  textDecorationLine: "line-through",
+                  justifyContent: "center",
+                }}
+              >
+                ₹{oldPrice}
+              </Text>
+              <TextSemiBold
+                style={{ fontSize: 12.5, marginTop: 10, marginLeft: 5 }}
+              >
+                ₹{newPrice}
+              </TextSemiBold>
               <TextSemiBold
                 style={{
-                  fontSize: 12,
+                  fontSize: 11.5,
+                  marginTop: 10.5,
+                  marginLeft: 5,
                   color: "#91e2a8",
                 }}
               >
-                Add to Cart
+                {discount}% off
               </TextSemiBold>
-            </TouchableOpacity>
+            </View>
+            <View style={{ flexDirection: "row", marginTop: 10 }}>
+              {availableColors.map((color, index) => (
+                <View
+                  key={index}
+                  style={{
+                    width: 12.5,
+                    height: 12.5,
+                    borderRadius: 12.5,
+                    backgroundColor: color,
+                    marginRight: 10,
+                    borderWidth: 1,
+                    borderColor: "#263d2c",
+                  }}
+                />
+              ))}
+              {moreColors.length > 0 && (
+                <TouchableOpacity
+                  style={{
+                    width: 12.5,
+                    height: 12.5,
+                    borderRadius: 12.5,
+                    backgroundColor: "white",
+                    marginRight: 10,
+                    justifyContent: "center",
+                    alignItems: "center",
+                    borderWidth: 1,
+                    borderColor: "#263d2c",
+                  }}
+                >
+                  <TextSemiBold style={{ fontSize: 6 }}>
+                    +{moreColors.length}
+                  </TextSemiBold>
+                </TouchableOpacity>
+              )}
+            </View>
+            <View style={{ flexDirection: "row" }}>
+              <TouchableOpacity activeOpacity={0.5} style={styles.cart}>
+                <TextSemiBold
+                  style={{
+                    fontSize: 12,
+                    color: "#91e2a8",
+                  }}
+                >
+                  Add to Cart
+                </TextSemiBold>
+              </TouchableOpacity>
 
-            <View style={styles.like}>
-              <LikeButton />
+              <View style={styles.like}>
+                <LikeButton />
+              </View>
             </View>
           </View>
         </View>
       </View>
-    </View>
+    </Pressable>
   );
 };
 

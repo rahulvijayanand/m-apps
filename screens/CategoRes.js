@@ -98,19 +98,19 @@ function CategoRes({ navigation }) {
           Results (118)
         </TextSemiBold>
         {categocop.map((item) => (
-          <Pressable onPress={() => navigation.navigate("Productss")}>
-            <WishlistComp
-              imageSource={item.imageSource}
-              title={item.title}
-              ratings={item.ratings}
-              numReviews={item.numReviews}
-              oldPrice={item.oldPrice}
-              newPrice={item.newPrice}
-              discount={item.discount}
-              colors={item.colors}
-              type={item.type}
-            />
-          </Pressable>
+          <WishlistComp
+            imageSource={item.imageSource}
+            title={item.title}
+            ratings={item.ratings}
+            numReviews={item.numReviews}
+            oldPrice={item.oldPrice}
+            newPrice={item.newPrice}
+            discount={item.discount}
+            colors={item.colors}
+            type={item.type}
+            navigation={navigation}
+            navi={"Products"}
+          />
         ))}
         <View style={{ marginBottom: 85 }}></View>
       </ScrollView>

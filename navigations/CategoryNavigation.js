@@ -16,7 +16,7 @@ function CategoryStack() {
       <Stack.Screen name="HomeScreen" component={CategoriesScreen} />
       <Stack.Screen name="WishList" component={Wishlist} />
       <Stack.Screen name="Categores" component={CategoRes} />
-      <Stack.Screen name="Productss" component={ProductScreen} />
+      <Stack.Screen name="Products" component={ProductScreen} />
     </Stack.Navigator>
   );
 }
