@@ -1,9 +1,8 @@
 import React from "react";
-import { StyleSheet, View, StatusBar } from "react-native";
+import { StyleSheet, View, StatusBar, ScrollView, Pressable } from "react-native";
 import Text from "../fonts/Text";
 import Location from "../components/Location";
 import WishlistComp from "../components/WishlistComp";
-import { ScrollView } from "react-native-gesture-handler";
 
 const wishlistcop = [
   {
@@ -60,7 +59,7 @@ const wishlistcop = [
   },
 ];
 
-function Wishlist({ navigation }) {
+function Wishlist({ navigation, navi }) {
   return (
     <View style={styles.container}>
       <View style={{ marginBottom: 30 }}>
@@ -68,6 +67,7 @@ function Wishlist({ navigation }) {
       </View>
       <ScrollView showsVerticalScrollIndicator={false}>
         {wishlistcop.map((item) => (
+          <Pressable onPress={() => navigation.navigate(navi)}>
           <WishlistComp
             imageSource={item.imageSource}
             title={item.title}
@@ -79,6 +79,7 @@ function Wishlist({ navigation }) {
             colors={item.colors}
             type={item.type}
           />
+          </Pressable>
         ))}
         <View style={{ marginBottom: 85 }}></View>
       </ScrollView>

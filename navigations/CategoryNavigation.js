@@ -3,6 +3,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import Wishlist from "../screens/wishlist";
 import CategoriesScreen from "../screens/categories";
 import CategoRes from "../screens/CategoRes";
+import ProductScreen from "../screens/Product";
 const Stack = createStackNavigator();
 
 function CategoryStack() {
@@ -15,6 +16,7 @@ function CategoryStack() {
       <Stack.Screen name="HomeScreen" component={CategoriesScreen} />
       <Stack.Screen name="WishList" component={Wishlist} />
       <Stack.Screen name="Categores" component={CategoRes} />
+      <Stack.Screen name="Productss" component={ProductScreen} />
     </Stack.Navigator>
   );
 }
