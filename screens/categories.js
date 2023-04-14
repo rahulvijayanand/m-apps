@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, StyleSheet, View, StatusBar, ScrollView } from "react-native";
+import { Image, StyleSheet, View, StatusBar, ScrollView, Pressable } from "react-native";
 import Text from "../fonts/Text";
 import Location from "../components/Location";
 import CategoryComponent from "../components/CategoryComponent";
@@ -18,7 +18,9 @@ function CategoriesScreen({ navigation }) {
       </View>
       <ScrollView showsVerticalScrollIndicator={false}>
         {categoryimagelist.map((item) => (
-          <CategoryComponent image={item.image} name={item.name} />
+          <Pressable onPress={() => navigation.navigate("Categores")}>
+            <CategoryComponent image={item.image} name={item.name} />
+          </Pressable>
         ))}
         <View style={{ paddingBottom: 100 }}></View>
       </ScrollView>
