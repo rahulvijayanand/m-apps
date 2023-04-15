@@ -24,7 +24,7 @@ const COLOR_OPTIONS = [
 export default function PriceRangeSlider({ navigation }) {
   const [priceRange, setPriceRange] = useState(100);
   const [filterData, setFilterData] = useState(FILTER_DATA);
-  const [colorIndex, setColorIndex] = useState(-1);
+  const [colorIndex, setColorIndex] = useState(COLOR_OPTIONS);
 
   const handleFilterOptionPress = (index) => {
     const newData = [...filterData];
@@ -33,7 +33,9 @@ export default function PriceRangeSlider({ navigation }) {
   };
 
   const handleColorOptionPress = (index) => {
-    setColorIndex(index);
+    const newDat = [...colorIndex];
+    newDat[index].value = !newDat[index].value;
+    setColorIndex(newDat);
   };
 
   const handlePriceRangeChange = (value) => {
@@ -100,12 +102,12 @@ export default function PriceRangeSlider({ navigation }) {
         <Text style={{ fontSize: 22 }}>Colors</Text>
       </View>
       <View style={styles.colorContainer}>
-        {COLOR_OPTIONS.slice(0, 3).map((item, index) => (
+        {colorIndex.slice(0, 3).map((item, index) => (
           <TouchableOpacity
             key={index}
             style={[
               styles.colorOption,
-              colorIndex === index && styles.activeColorOption,
+              item.value && styles.activeColorOption,
               { backgroundColor: item.color },
             ]}
             onPress={() => handleColorOptionPress(index)}
@@ -115,12 +117,12 @@ export default function PriceRangeSlider({ navigation }) {
         ))}
       </View>
       <View style={styles.colorContainer}>
-        {COLOR_OPTIONS.slice(3).map((item, index) => (
+        {colorIndex.slice(3).map((item, index) => (
           <TouchableOpacity
             key={index + 3}
             style={[
               styles.colorOption,
-              colorIndex === index + 3 && styles.activeColorOption,
+              item.value && styles.activeColorOption,
               { backgroundColor: item.color },
             ]}
             onPress={() => handleColorOptionPress(index + 3)}
