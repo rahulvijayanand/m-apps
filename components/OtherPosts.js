@@ -19,7 +19,7 @@ const OtherPosts = () => {
       style={{
         height: height * 0.38,
         width: width,
-        backgroundColor: "#eeeeee",
+        backgroundColor: "rgba(38, 61, 44, 0.04)",
         marginTop: 30,
         marginLeft: 25,
         borderRadius: 8,
@@ -40,13 +40,15 @@ const OtherPosts = () => {
       </View>
       <View style={{ height: height * 0.25, width: width }}>
         <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-          {Postlist.map((item) => (
+          {Postlist.map((item, index) => (
             <Image
+              key={index}
               source={item}
               style={{
                 width: width * 0.5,
                 height: height * 0.25,
-                marginLeft: 20,
+                marginLeft: index === 0 ? 20 : 10,
+                marginRight: index === Postlist.length - 1 ? 30 : 0,
                 borderRadius: 15,
                 resizeMode: "cover",
               }}

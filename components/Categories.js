@@ -21,7 +21,9 @@ const Categories = ({ categoriesList, imagesList }) => {
           style={styles.categoryContainer}
           key={category}
         >
-          <Image source={imagesList[index]} style={styles.categoryImage} />
+          <View style={styles.profilepicContainer}>
+            <Image source={imagesList[index]} style={styles.categoryImage} />
+          </View>
           <TextSemiBold style={styles.categoryText}>{category}</TextSemiBold>
         </TouchableOpacity>
       ))}
@@ -33,11 +35,6 @@ const styles = StyleSheet.create({
   categoryContainer: {
     alignItems: "center",
     marginRight: 27,
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 1 },
-    shadowOpacity: 0.2,
-    shadowRadius: 2,
-    elevation: 10,
   },
   categoryImage: {
     width: 48,
@@ -48,6 +45,19 @@ const styles = StyleSheet.create({
     marginTop: 5,
     fontSize: 11,
     textAlign: "center",
+  },
+  profilepicContainer: {
+    width: 48,
+    height: 48,
+    borderRadius: 20,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 3,
   },
 });
 
