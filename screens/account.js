@@ -1,29 +1,30 @@
 import * as React from "react";
-import { View, StyleSheet, StatusBar, Image } from "react-native";
+import { View, StyleSheet, StatusBar, Image,Pressable } from "react-native";
 import Myacc from "../components/Myaccount";
 import TextSemiBold from "../fonts/TextSemiBold";
 import Text from "../fonts/Text";
 import Location from "../components/Location";
 const Details = [
-  { id: 1, title: "Profile", name: require("../assets/Group-301.png") },
-  { id: 2, title: "Address", name: require("../assets/Vector-9.png") },
-  { id: 3, title: "Orders", name: require("../assets/Group-1.png") },
-  { id: 4, title: "Saved Cards", name: require("../assets/Group-2.png") },
-  { id: 5, title: "Wishlist", name: require("../assets/Vector-10.png") },
+  { id: 1, title: "Profile", name: require("../assets/Group-301.png"),navi:"Account Screen" },
+  { id: 2, title: "Address", name: require("../assets/Vector-9.png"),navi:"Account Screen" },
+  { id: 3, title: "Orders", name: require("../assets/Group-1.png"),navi:"Account Screen" },
+  { id: 4, title: "Saved Cards", name: require("../assets/Group-2.png"),navi:"Saved" },
+  { id: 5, title: "Wishlist", name: require("../assets/Vector-10.png"),navi:"WishList" },
   {
     id: 6,
+
     title: "Manage Referrals",
-    name: require("../assets/Group-300.png"),
+    name: require("../assets/Group-300.png"),navi:"Account Screen"
   },
-  { id: 7, title: "Notifications", name: require("../assets/Vector-11.png") },
+  { id: 7, title: "Notifications", name: require("../assets/Vector-11.png"),navi:"Account Screen"},
   {
     id: 8,
     title: "Terms & Policies",
-    name: require("../assets/Vector-12.png"),
+    name: require("../assets/Vector-12.png"),navi:"Account Screen"
   },
-  { id: 9, title: "Customer Support", name: require("../assets/Group302.png") },
+  { id: 9, title: "Customer Support", name: require("../assets/Group302.png"),navi:"Account Screen" },
 ];
-export default function App({ navigation }) {
+export default function Account({ navigation }) {
   return (
     <View
       style={{
@@ -50,7 +51,14 @@ export default function App({ navigation }) {
         </View>
       </View>
       <View style={{ height: 1, borderWidth: 0.5, borderColor: "#d0d6d4" }} />
-      <Myacc data={Details} />
+      {Details.map((item,index)=>(
+        <Pressable onPress={()=>navigation.navigate(item.navi)}>
+           <Myacc name={item.name} title={item.title} navi={item.navi}/>
+        </Pressable>
+       
+      )
+       
+      )}
     </View>
   );
 }
@@ -79,3 +87,4 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
   },
 });
+

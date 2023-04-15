@@ -1,12 +1,12 @@
 import * as React from "react";
-import { View, StyleSheet, StatusBar, Image } from "react-native";
+import { View, StyleSheet, StatusBar, Image,Pressable } from "react-native";
 import { AntDesign, MaterialIcons } from "@expo/vector-icons";
 import Text from "../fonts/Text";
-const Myacc = ({ data }) => {
+
+const Myacc = (props) => {
   const { img } = styles;
   return (
-    <View>
-      {data.map((item, index) => (
+    
         <View>
           <View
             style={{
@@ -18,26 +18,32 @@ const Myacc = ({ data }) => {
             }}
           >
             <View style={{ flexDirection: "row", alignItems: "center" }}>
-              <Image style={img} source={item.name} />
+              <Image style={img} source={props.name} />
 
               <Text style={{ marginLeft: "10%", fontSize: 17 }}>
-                {item.title}
+                {props.title}
               </Text>
             </View>
+           
             <MaterialIcons
               name="keyboard-arrow-right"
               size={24}
               color="black"
             />
+
+            
+           
           </View>
           <View
             style={{ height: 1, borderWidth: 0.5, borderColor: "#d0d6d4" }}
           />
         </View>
-      ))}
-    </View>
+     
   );
-};
+}
+
+
+
 export default Myacc;
 
 const styles = StyleSheet.create({

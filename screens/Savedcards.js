@@ -2,13 +2,13 @@ import React from "react";
 import { Text, View, StyleSheet, StatusBar } from "react-native";
 import { AntDesign, MaterialCommunityIcons } from "@expo/vector-icons";
 import Constants from "expo-constants";
-import Save from "../components/Savedcards";
+import Save from "../components/Savedcardcomponent";
 const Cardinfo = [
   { id: 1, name: "Visa ****9080", exp_date: "08/27" },
   { id: 2, name: "Yes Bank Credit Card ****8980", exp_date: "07/29" },
   { id: 3, name: "ICICI Credit Card ****2880", exp_date: "08/27" },
 ];
-export default function App() {
+export default function Savedcards() {
   return (
     <View style={styles.container}>
       <View style={styles.StatusBar} />

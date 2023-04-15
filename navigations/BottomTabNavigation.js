@@ -7,7 +7,7 @@ import AccountScreen from "../screens/account";
 import CategoriesScreen from "../screens/categories";
 import CategoryStack from "./CategoryNavigation";
 import ExploreStack from "./ExploreNavigation";
-
+import AccountStack from "./AccountNavi";
 const Tab = createBottomTabNavigator();
 
 export default function Navigation() {
@@ -134,7 +134,7 @@ export default function Navigation() {
 
       <Tab.Screen
         name={"Account"}
-        component={AccountScreen}
+        component={AccountStack}
         options={{
           tabBarIcon: ({ focused }) => (
             <View style={styles.Centre}>

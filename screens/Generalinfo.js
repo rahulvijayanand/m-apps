@@ -3,7 +3,7 @@ import { Text, View, StyleSheet, StatusBar } from "react-native";
 import { AntDesign, MaterialIcons } from "@expo/vector-icons";
 import Constants from "expo-constants";
 import G_info from "../components/General_info";
-const G_info = [
+const g_info = [
   { id: 1, title: "Terms of service" },
   { id: 2, title: "Privacy Policy" },
   { id: 3, title: "Delivery and Refund" },
@@ -26,11 +26,14 @@ export default function App() {
         </Text>
       </View>
       <View style={{ marginVertical: "10%" }}>
-        <G_info data={G_info} />
+        <G_info data={g_info} />
       </View>
     </View>
   );
 }
+
+
+
 
 const styles = StyleSheet.create({
   container: {
