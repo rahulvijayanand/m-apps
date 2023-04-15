@@ -1,7 +1,8 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import Navigation from "./BottomTabNavigation"
+import Navigation from "./BottomTabNavigation";
 import FilterPage from "../screens/FilterPage";
+import AccountStack from "./AccountNavi";
 const Stack = createStackNavigator();
 
 function MainNavi() {
@@ -13,6 +14,7 @@ function MainNavi() {
     >
       <Stack.Screen name="Navigation" component={Navigation} />
       <Stack.Screen name="Filter" component={FilterPage} />
+      <Stack.Screen name="AccountStack" component={AccountStack} />
     </Stack.Navigator>
   );
 }

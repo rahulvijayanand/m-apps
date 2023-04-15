@@ -95,7 +95,7 @@ export default function Account({ navigation }) {
             source={require("../assets/profile.png")}
           />
         </View>
-        <View style={{ justifyContent: "center", width: "100%" }}>
+        <Pressable style={{ justifyContent: "center", width: "100%" }}>
           <TextSemiBold style={{ marginHorizontal: "3.5%", fontSize: 18 }}>
             Arun Kumar
           </TextSemiBold>
@@ -104,7 +104,7 @@ export default function Account({ navigation }) {
           >
             +9197854XXXXX
           </TextSemiBold>
-        </View>
+        </Pressable>
       </View>
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={{ height: 1, borderWidth: 0.5, borderColor: "#d0d6d4" }} />
@@ -113,7 +113,6 @@ export default function Account({ navigation }) {
             <Myacc name={item.name} title={item.title} navi={item.navi} />
           </Pressable>
         ))}
-        <View style={{ marginBottom: 100 }}></View>
       </ScrollView>
     </View>
   );

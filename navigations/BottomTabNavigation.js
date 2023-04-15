@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, StyleSheet, View } from "react-native";
+import { Image, StyleSheet, View, TouchableOpacity } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Text from "../fonts/Text";
 import HomeStack from "./HomeNavigation";
@@ -10,7 +10,7 @@ import ExploreStack from "./ExploreNavigation";
 import AccountStack from "./AccountNavi";
 const Tab = createBottomTabNavigator();
 
-export default function Navigation() {
+export default function Navigation({ navigation }) {
   return (
     <Tab.Navigator
       screenOptions={{
@@ -158,6 +158,12 @@ export default function Navigation() {
                 Account
               </Text>
             </View>
+          ),
+          tabBarButton: (props) => (
+            <TouchableOpacity
+              {...props}
+              onPress={() => navigation.navigate("AccountStack")}
+            />
           ),
         }}
       ></Tab.Screen>
