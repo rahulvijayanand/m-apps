@@ -5,6 +5,7 @@ import {
   MaterialIcons,
   MaterialCommunityIcons,
 } from "@expo/vector-icons";
+import Checkbox from "./Checkbox";
 const Savedcards = ({ data }) => {
   return (
     <View>
@@ -38,12 +39,7 @@ const Savedcards = ({ data }) => {
                 width: "70%",
               }}
             >
-              <MaterialCommunityIcons
-                name="checkbox-marked"
-                size={24}
-                color="#82acd9"
-              />
-
+             <Checkbox/>
               <Text style={{ marginLeft: "3%" }}>
                 Save card as per new RBI guidelines.{" "}
                 <Text style={{ color: "#82acd9" }}>Learn more</Text>

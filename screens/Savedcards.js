@@ -2,6 +2,7 @@ import React from "react";
 import { Text, View, StyleSheet, StatusBar } from "react-native";
 import { AntDesign, MaterialCommunityIcons } from "@expo/vector-icons";
 import Constants from "expo-constants";
+import Checkbox from "../components/Checkbox";
 import Save from "../components/Savedcardcomponent";
 const Cardinfo = [
   { id: 1, name: "Visa ****9080", exp_date: "08/27" },
@@ -11,7 +12,7 @@ const Cardinfo = [
 export default function Savedcards() {
   return (
     <View style={styles.container}>
-      <View style={styles.StatusBar} />
+     
       <View
         style={{
           marginHorizontal: "5%",
@@ -42,8 +43,5 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  StatusBar: {
-    height: Constants.statusBarHeight + 5,
-    backgroundColor: "#92E38A",
-  },
+  
 });
