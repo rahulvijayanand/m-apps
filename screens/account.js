@@ -11,7 +11,8 @@ import Myacc from "../components/Myaccount";
 import TextSemiBold from "../fonts/TextSemiBold";
 import Text from "../fonts/Text";
 import Location from "../components/Location";
-import { SocialIcon } from "react-native-elements/dist/social/SocialIcon";
+import { SocialIcon } from "react-native-elements/dist/social/SocialIcon"; 
+
 const Details = [
   {
     id: 1,
@@ -113,6 +114,7 @@ export default function Account({ navigation }) {
             <Myacc name={item.name} title={item.title} navi={item.navi} />
           </Pressable>
         ))}
+       
       </ScrollView>
     </View>
   );
