@@ -54,7 +54,7 @@ const Details = [
     id: 7,
     title: "Notifications",
     name: require("../assets/Vector-11.png"),
-    navi: "Account Screen",
+    navi: "Notify",
   },
   {
     id: 8,
