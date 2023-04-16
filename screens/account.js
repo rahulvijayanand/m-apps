@@ -11,7 +11,6 @@ import Myacc from "../components/Myaccount";
 import TextSemiBold from "../fonts/TextSemiBold";
 import Text from "../fonts/Text";
 import Location from "../components/Location";
-import { SocialIcon } from "react-native-elements/dist/social/SocialIcon"; 
 
 const Details = [
   {

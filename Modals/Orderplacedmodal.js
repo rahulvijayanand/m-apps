@@ -5,14 +5,14 @@ import {
   Button,
   Modal,
   Image,
-  Text,
+  
   TouchableOpacity,
   Pressable,
   Animated,
   ImageBackground
 } from 'react-native';
 import { Entypo } from '@expo/vector-icons';
-
+import Text from "../fonts/Text";
 let containerHeight=350,containerWidth=300;
 
 
@@ -138,7 +138,7 @@ You will receive an order confirmation </Text>
             }}
             onPress={() => setVisible(false)}>
             <Text style={{ fontWeight: 'bold', fontSize: 18, color: 'white' }}>
-              Continue shopping
+              Continue Shopping
             </Text>
           </TouchableOpacity>
          
