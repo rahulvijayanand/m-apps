@@ -1,5 +1,12 @@
 import React from "react";
-import { Image, StyleSheet, View, StatusBar, ScrollView, Pressable } from "react-native";
+import {
+  Image,
+  StyleSheet,
+  View,
+  StatusBar,
+  ScrollView,
+  Pressable,
+} from "react-native";
 import Text from "../fonts/Text";
 import Location from "../components/Location";
 import CategoryComponent from "../components/CategoryComponent";

@@ -23,7 +23,6 @@ function AccountStack() {
       <Stack.Screen name="Products" component={ProductScreen} />
       <Stack.Screen name="Notify" component={Notification} />
       <Stack.Screen name="Tracking" component={Tracking} />
-
     </Stack.Navigator>
   );
 }

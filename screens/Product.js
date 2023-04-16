@@ -118,7 +118,7 @@ const ProductScreen = ({ navigation }) => {
         </TouchableOpacity>
       </View>
       <View style={{ marginLeft: 20, flexDirection: "row", marginTop: 5 }}>
-        <RatingComponent rating={rating} starSize={23}/>
+        <RatingComponent rating={rating} starSize={23} />
         <TextSemiBold style={{ alignSelf: "flex-end", marginLeft: 5 }}>
           {rating}/5
         </TextSemiBold>

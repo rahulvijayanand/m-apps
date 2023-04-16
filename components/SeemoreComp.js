@@ -13,7 +13,11 @@ const ImageDisplay = ({ image, onClose }) => {
   return (
     <Modal animationType="slide" visible={true} onRequestClose={onClose}>
       <View style={styles.imageDisplayContainer}>
-        <Image source={image} style={styles.imageDisplay} resizeMode="contain" />
+        <Image
+          source={image}
+          style={styles.imageDisplay}
+          resizeMode="contain"
+        />
         <TouchableOpacity style={styles.closeButton} onPress={onClose}>
           <Text style={styles.closeButtonText}>Close</Text>
         </TouchableOpacity>
@@ -50,7 +54,9 @@ const PhotoGallery = ({ images }) => {
           </TouchableOpacity>
         ))}
       </ScrollView>
-      {selectedImage && <ImageDisplay image={selectedImage} onClose={handleClose} />}
+      {selectedImage && (
+        <ImageDisplay image={selectedImage} onClose={handleClose} />
+      )}
       <TouchableOpacity activeOpacity={0.5} style={styles.button}>
         <Text style={styles.buttonText}>See more images</Text>
         <Image

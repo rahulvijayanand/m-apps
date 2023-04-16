@@ -73,19 +73,19 @@ function Wishlist({ navigation }) {
       </View>
       <ScrollView showsVerticalScrollIndicator={false}>
         {wishlistcop.map((item) => (
-            <WishlistComp
-              imageSource={item.imageSource}
-              title={item.title}
-              ratings={item.ratings}
-              numReviews={item.numReviews}
-              oldPrice={item.oldPrice}
-              newPrice={item.newPrice}
-              discount={item.discount}
-              colors={item.colors}
-              type={item.type}
-              navigation={navigation}
-              navi={"Products"}
-            />
+          <WishlistComp
+            imageSource={item.imageSource}
+            title={item.title}
+            ratings={item.ratings}
+            numReviews={item.numReviews}
+            oldPrice={item.oldPrice}
+            newPrice={item.newPrice}
+            discount={item.discount}
+            colors={item.colors}
+            type={item.type}
+            navigation={navigation}
+            navi={"Products"}
+          />
         ))}
         <View style={{ marginBottom: 85 }}></View>
       </ScrollView>
