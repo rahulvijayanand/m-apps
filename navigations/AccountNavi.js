@@ -5,7 +5,8 @@ import Myacc from "../screens/account";
 import Generalinfo from "../screens/Generalinfo";
 import Wishlist from "../screens/wishlist";
 import ProductScreen from "../screens/Product";
-import Notification from "../screens/Notification"
+import Notification from "../screens/Notification";
+import Tracking from "../screens/Tracking";
 const Stack = createStackNavigator();
 
 function AccountStack() {
@@ -21,6 +22,7 @@ function AccountStack() {
       <Stack.Screen name="Wishlist" component={Wishlist} />
       <Stack.Screen name="Products" component={ProductScreen} />
       <Stack.Screen name="Notify" component={Notification} />
+      <Stack.Screen name="Tracking" component={Tracking} />
 
     </Stack.Navigator>
   );

@@ -23,7 +23,7 @@ const Details = [
     id: 2,
     title: "Address",
     name: require("../assets/Vector-9.png"),
-    navi: "Account Screen",
+    navi: "Tracking",
   },
   {
     id: 3,
