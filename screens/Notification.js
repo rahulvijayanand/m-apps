@@ -9,6 +9,7 @@ import {
 } from 'react-native';
 import Location from "../components/Location";
 import Text from "../fonts/Text";
+import TextSemiBold from "../fonts/TextSemiBold";
 import { AntDesign, MaterialCommunityIcons } from '@expo/vector-icons';
 
 const Preference = [
@@ -108,7 +109,7 @@ export default function Notification({navigation}) {
           padding: '3%',
           borderRadius: 10,
         }}>
-        <Text
+        <TextSemiBold
 
 
           style={{
@@ -118,7 +119,7 @@ export default function Notification({navigation}) {
             fontSize: 20,
           }}>
           Turn {turn?"On":"Off"} All
-        </Text>
+        </TextSemiBold>
       </TouchableOpacity>
       
     </View>
