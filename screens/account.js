@@ -6,11 +6,13 @@ import {
   Image,
   Pressable,
   ScrollView,
+  TouchableOpacity,
 } from "react-native";
 import Myacc from "../components/Myaccount";
 import TextSemiBold from "../fonts/TextSemiBold";
 import Text from "../fonts/Text";
 import Location from "../components/Location";
+import firebase from "firebase/compat/app";
 
 const Details = [
   {
@@ -70,6 +72,15 @@ const Details = [
   },
 ];
 export default function Account({ navigation }) {
+  async function handleSignOut() {
+    try {
+      await firebase.auth().signOut();
+      navigation.navigate("Login");
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
   return (
     <View
       style={{
@@ -113,7 +124,26 @@ export default function Account({ navigation }) {
             <Myacc name={item.name} title={item.title} navi={item.navi} />
           </Pressable>
         ))}
-       
+        <TouchableOpacity
+          onPress={handleSignOut}
+          style={{
+            marginVertical: "7.5%",
+            marginHorizontal: "5%",
+            backgroundColor: "#263d2c",
+            padding: "3%",
+            borderRadius: 10,
+          }}
+        >
+          <TextSemiBold
+            style={{
+              color: "#92E38A",
+              textAlign: "center",
+              fontSize: 20,
+            }}
+          >
+            Sign Out
+          </TextSemiBold>
+        </TouchableOpacity>
       </ScrollView>
     </View>
   );
