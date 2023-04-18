@@ -108,7 +108,7 @@ export default function Account({ navigation }) {
         </View>
         <Pressable style={{ justifyContent: "center", width: "100%" }}>
           <TextSemiBold style={{ marginHorizontal: "3.5%", fontSize: 18 }}>
-            Arun Kumar
+            Sunil Kumar
           </TextSemiBold>
           <TextSemiBold
             style={{ marginHorizontal: "3%", color: "#8C9F92", fontSize: 12 }}

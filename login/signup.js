@@ -87,7 +87,6 @@ const Signup = () => {
           <Feather name="user" size={20} color="#263d2c" style={styles.icon1} />
           <TextInput
             placeholder="Name"
-            keyboardType="phone-pad"
             autoCompleteType="tel"
             style={styles.textInput}
           />
@@ -107,7 +106,7 @@ const Signup = () => {
           <Feather name="mail" size={20} color="#263d2c" style={styles.icon1} />
           <TextInput
             placeholder="Email"
-            keyboardType="phone-pad"
+            keyboardType="email-address"
             autoCompleteType="tel"
             style={styles.textInput}
           />
