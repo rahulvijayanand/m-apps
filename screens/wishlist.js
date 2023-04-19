@@ -5,11 +5,11 @@ import {
   StatusBar, Image, Dimensions,
   ScrollView,
   Pressable,
+  TouchableOpacity
 } from "react-native";
 import Text from "../fonts/Text";
 import Location from "../components/Location";
 import WishlistComp from "../components/WishlistComp";
-import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 import productdata from "../productdata.json";
 import { productcontext } from "../Context/context";
 const { width, height } = Dimensions.get("window");
@@ -118,7 +118,7 @@ function Wishlist({ route, navigation }) {
         {currentproductdata.map(
           (item) =>
             item.isliked && (
-              <TouchableOpacity onPress={() => {navigation.navigate("Products",{id:item.id})}}>
+              <Pressable onPress={() => {navigation.navigate("Products",{id:item.id})}}>
                 <WishlistComp
                   id={item.id}
                   imageSource={item.images[0]}
@@ -131,7 +131,7 @@ function Wishlist({ route, navigation }) {
                   colors={item.variants["variantcolor"]}
                   type={item.type}
                 />
-              </TouchableOpacity>
+              </Pressable>
             )
         )}
         <View style={{ marginBottom: 85 }}></View>

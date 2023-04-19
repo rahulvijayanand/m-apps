@@ -144,6 +144,7 @@ export default function Account({ navigation }) {
             Sign Out
           </TextSemiBold>
         </TouchableOpacity>
+        <View style={{ marginBottom: 100 }}></View>
       </ScrollView>
     </View>
   );

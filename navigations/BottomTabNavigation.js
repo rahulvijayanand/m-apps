@@ -1,5 +1,5 @@
 import React,{useState} from "react";
-import { Image, StyleSheet, View } from "react-native";
+import { Image, StyleSheet, View, TouchableOpacity } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Text from "../fonts/Text";
 import HomeStack from "./HomeNavigation";
@@ -164,12 +164,7 @@ export default function Navigation({ navigation }) {
               </Text>
             </View>
           ),
-          tabBarButton: (props) => (
-            <TouchableOpacity
-              {...props}
-              onPress={() => navigation.navigate("AccountStack")}
-            />
-          ),
+          
         }}
       ></Tab.Screen>
     </Tab.Navigator>
