@@ -9,15 +9,33 @@ const RatingComponent = ({ rating, starSize }) => {
   const hasHalfStar = rating - firstDigit >= 0.5;
 
   for (let i = 0; i < firstDigit; i++) {
-    stars.push(<Image key={i} style={[styles.star, { width: starSize, height: starSize }]} source={star1} />);
+    stars.push(
+      <Image
+        key={i}
+        style={[styles.star, { width: starSize, height: starSize }]}
+        source={star1}
+      />
+    );
   }
 
   if (hasHalfStar) {
-    stars.push(<Image key={firstDigit} style={[styles.star, { width: starSize, height: starSize }]} source={star2} />);
+    stars.push(
+      <Image
+        key={firstDigit}
+        style={[styles.star, { width: starSize, height: starSize }]}
+        source={star2}
+      />
+    );
   }
 
   for (let i = stars.length; i < 5; i++) {
-    stars.push(<Image key={i} style={[styles.star, { width: starSize, height: starSize }]} source={star2} />);
+    stars.push(
+      <Image
+        key={i}
+        style={[styles.star, { width: starSize, height: starSize }]}
+        source={star2}
+      />
+    );
   }
 
   return <View style={styles.container}>{stars}</View>;

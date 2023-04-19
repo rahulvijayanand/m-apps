@@ -52,7 +52,9 @@ const ImageCarousel = ({ images }) => {
               styles.dot,
               {
                 backgroundColor:
-                  index === activeIndex ? "rgba(255, 255, 255, 0.8)" : "rgba(255, 255, 255, 0.2)",
+                  index === activeIndex
+                    ? "rgba(255, 255, 255, 0.8)"
+                    : "rgba(255, 255, 255, 0.2)",
               },
               index === 0 && { marginLeft: 15 },
               index === images.length - 1 && { marginRight: 15 },

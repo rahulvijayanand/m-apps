@@ -74,7 +74,7 @@ function Location({ navigation, type, text,route }) {
             onPress={() => navigation.goBack()}
             style={{ flexDirection: "row" }}
           >
-            <Image  
+            <Image
               source={require("../assets/Vector-4.png")}
               style={[
                 styles.icon,

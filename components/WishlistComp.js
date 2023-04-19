@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   Dimensions,
   StyleSheet,
+  Pressable,
 } from "react-native";
 import Text from "../fonts/Text";
 import TextSemiBold from "../fonts/TextSemiBold";
@@ -26,6 +27,8 @@ const RectangularComponent = ({
   discount,
   colors = [],
   type,
+  navi,
+  navigation,
 }) => {
   const availableColors = colors.slice(0, 3);
   const moreColors = colors.slice(3);

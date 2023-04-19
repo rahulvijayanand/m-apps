@@ -1,5 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
-import { StyleSheet, View, StatusBar, Image, Dimensions } from "react-native";
+import {
+  StyleSheet,
+  View,
+  StatusBar, Image, Dimensions,
+  ScrollView,
+  Pressable,
+} from "react-native";
 import Text from "../fonts/Text";
 import Location from "../components/Location";
 import WishlistComp from "../components/WishlistComp";

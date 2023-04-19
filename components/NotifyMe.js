@@ -21,7 +21,7 @@ const NotifyMe = () => {
       }
     } catch (error) {}
   };
-  
+
   const [isnotify, setnotify] = useState(false);
   const handlepress = () => {
     setnotify(!isnotify);

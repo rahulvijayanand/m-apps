@@ -93,7 +93,7 @@ function CategoRes({route, navigation }) {
   return (
     <View style={styles.container}>
       <Location navigation={navigation} type="location" />
-      <Search type="filter" category={category}/>
+      <Search type="filter" navigation={navigation} category={category}/>
       <ScrollView showsVerticalScrollIndicator={false}>
         <TextSemiBold
           style={{ marginLeft: 20, fontSize: 21, marginBottom: 20 }}
@@ -114,6 +114,8 @@ function CategoRes({route, navigation }) {
             discount={item.offerpercentage}
             colors={item.variants["variantcolor"]}
             type={item.type}
+            navigation={navigation}
+            navi={"Products"}
           />
           </Pressable>
           ) ||

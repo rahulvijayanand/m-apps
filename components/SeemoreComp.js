@@ -50,7 +50,9 @@ const PhotoGallery = ({ images }) => {
           </TouchableOpacity>
         ))}
       </ScrollView>
-      {selectedImage && <ImageDisplay image={selectedImage} onClose={handleClose} />}
+      {selectedImage && (
+        <ImageDisplay image={selectedImage} onClose={handleClose} />
+      )}
       <TouchableOpacity activeOpacity={0.5} style={styles.button}>
         <Text style={styles.buttonText}>See more images</Text>
         <Image

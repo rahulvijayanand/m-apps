@@ -1,13 +1,12 @@
 import React from "react";
 import { StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
-import Text from "./fonts/Text";
-import Navigation from "./navigations/BottomTabNavigation";
+import MainNavi from "./navigations/MainNavi";
 
 export default function App() {
   return (
     <NavigationContainer>
-      <Navigation/>
+      <MainNavi />
     </NavigationContainer>
   );
 }

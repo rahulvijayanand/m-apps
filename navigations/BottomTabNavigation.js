@@ -10,10 +10,10 @@ import ExploreStack from "./ExploreNavigation";
 import { productcontext } from "../Context/context";
 import productdata from "../productdata.json";
 import { useSafeAreaFrame } from "react-native-safe-area-context";
-
+import AccountStack from "./AccountNavi";
 const Tab = createBottomTabNavigator();
 
-export default function Navigation() {
+export default function Navigation({ navigation }) {
   const[currentproductdata,setproductdata]=useState(productdata);
   return (
     <productcontext.Provider value={{product:[currentproductdata,setproductdata]}}>
@@ -139,7 +139,7 @@ export default function Navigation() {
 
       <Tab.Screen
         name={"Account"}
-        component={AccountScreen}
+        component={AccountStack}
         options={{
           tabBarIcon: ({ focused }) => (
             <View style={styles.Centre}>
@@ -163,6 +163,12 @@ export default function Navigation() {
                 Account
               </Text>
             </View>
+          ),
+          tabBarButton: (props) => (
+            <TouchableOpacity
+              {...props}
+              onPress={() => navigation.navigate("AccountStack")}
+            />
           ),
         }}
       ></Tab.Screen>

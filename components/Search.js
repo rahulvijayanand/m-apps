@@ -64,6 +64,7 @@ const Search = ({ type, navigation,category}) => {
             alignItems: "center",
             justifyContent: "center",
           }}
+          onPress={() => navigation.navigate("Filter")}
         >
           <TextSemiBold style={{ fontSize: 10 }}>Filters</TextSemiBold>
           <Image
