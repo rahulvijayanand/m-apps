@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import { Image, StyleSheet, View } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Text from "../fonts/Text";
@@ -7,11 +7,16 @@ import AccountScreen from "../screens/account";
 import CategoriesScreen from "../screens/categories";
 import CategoryStack from "./CategoryNavigation";
 import ExploreStack from "./ExploreNavigation";
+import { productcontext } from "../Context/context";
+import productdata from "../productdata.json";
+import { useSafeAreaFrame } from "react-native-safe-area-context";
 
 const Tab = createBottomTabNavigator();
 
 export default function Navigation() {
+  const[currentproductdata,setproductdata]=useState(productdata);
   return (
+    <productcontext.Provider value={{product:[currentproductdata,setproductdata]}}>
     <Tab.Navigator
       screenOptions={{
         headerShown: false,
@@ -162,6 +167,7 @@ export default function Navigation() {
         }}
       ></Tab.Screen>
     </Tab.Navigator>
+    </productcontext.Provider>
   );
 }
 

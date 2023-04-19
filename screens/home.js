@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState,useEffect,useContext} from "react";
 import {
   StyleSheet,
   View,
@@ -15,8 +15,11 @@ import Categories from "../components/Categories";
 import RectangularComponent from "../components/Rectangle";
 import RectD from "../components/DealsRec";
 import BestSeller from "../components/BestSeller";
+import productdata from "../productdata.json";
+import { productcontext } from "../Context/context";
 
-function HomeScreen({ navigation }) {
+
+function HomeScreen({ route,navigation }) {
   const slides = [
     { image: require("../assets/1.png") },
     { image: require("../assets/2.png") },
@@ -66,6 +69,20 @@ function HomeScreen({ navigation }) {
     },
   ];
 
+  const {product}=useContext(productcontext);
+  const [currentproductdata,setproductdata]=product;
+
+  const handleCartPress = (id) => {
+    const newState = currentproductdata.map((item) => {
+      if (item.id === id) {
+        return { ...item, iscart: !iscart };
+      }
+      return item;
+    });
+    setproductdata(newState);
+  };
+
+
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor={"#92e3a9"} />
@@ -110,53 +127,21 @@ function HomeScreen({ navigation }) {
           <TextSemiBold style={{ marginLeft: 20, marginTop: 40, fontSize: 20 }}>
             Best Sellers
           </TextSemiBold>
-          <View style={{ flexDirection: "row" }}>
-            <Pressable onPress={() => navigation.navigate("Products")}>
+          <View style={{ flexDirection: "row",flexWrap:"wrap" }}>
+            {currentproductdata.map((item)=>(
+            <Pressable onPress={() => {navigation.navigate("Products",{id:item.id})}}>
               <BestSeller
-                imageSource={require("../assets/B1.png")}
-                title="Phaila Hydrating Handmade Soap Bars"
-                rating={4.8}
-                numReviews={1800}
-                oldPrice={599}
-                newPrice={350}
-                discount={30}
+                id={item.id}
+                imageSource={item.images[0]}
+                title={item.name}
+                rating={item.rating}
+                numReviews={item.verified_buyers}
+                oldPrice={item.originalprice}
+                newPrice={item.priceafterdiscount}
+                discount={item.offerpercentage}
               />
             </Pressable>
-            <Pressable onPress={() => navigation.navigate("Products")}>
-              <BestSeller
-                imageSource={require("../assets/B1.png")}
-                title="Phaila Hydrating Handmade Soap Bars"
-                rating={4.8}
-                numReviews={1800}
-                oldPrice={599}
-                newPrice={350}
-                discount={30}
-              />
-            </Pressable>
-          </View>
-          <View style={{ flexDirection: "row" }}>
-            <Pressable onPress={() => navigation.navigate("Products")}>
-              <BestSeller
-                imageSource={require("../assets/B1.png")}
-                title="Phaila Hydrating Handmade Soap Bars"
-                rating={4.8}
-                numReviews={1800}
-                oldPrice={599}
-                newPrice={350}
-                discount={30}
-              />
-            </Pressable>
-            <Pressable onPress={() => navigation.navigate("Products")}>
-              <BestSeller
-                imageSource={require("../assets/B1.png")}
-                title="Phaila Hydrating Handmade Soap Bars"
-                rating={4.8}
-                numReviews={1800}
-                oldPrice={599}
-                newPrice={350}
-                discount={30}
-              />
-            </Pressable>
+            ))}
           </View>
         </View>
         <View style={{ marginBottom: 100 }}></View>

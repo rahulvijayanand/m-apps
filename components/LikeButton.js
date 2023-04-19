@@ -1,15 +1,25 @@
-import React, { useState } from "react";
+import React, { useState,useContext,useEffect } from "react";
 import { StyleSheet, TouchableOpacity, Image } from "react-native";
+import productdata from "../productdata.json";
+import { productcontext } from "../Context/context";
+const LikeButton = (props) => {
 
-const LikeButton = () => {
-  const [liked, setLiked] = useState(false);
+  const { product } = useContext(productcontext);
+  const [currentproductdata, setproductdata] = product;
 
-  const toggleLiked = () => {
-    setLiked(!liked);
+  const [liked, setLiked] = useState(currentproductdata[props.id].isliked);
+
+  const toggleLiked = (id,newValue) => {
+    setLiked(newValue);
+    setproductdata(currentproductdata =>
+      currentproductdata.map((obj) =>
+        obj.id === id ? { ...obj, isliked: newValue } : obj
+      )
+    );
   };
 
   return (
-    <TouchableOpacity onPress={toggleLiked} style={styles.container}>
+    <TouchableOpacity onPress={()=>toggleLiked(props.id,!currentproductdata[props.id].isliked)} style={styles.container}>
       <Image
         source={
           liked

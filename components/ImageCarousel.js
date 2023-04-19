@@ -38,7 +38,7 @@ const ImageCarousel = ({ images }) => {
         {images.map((image, index) => (
           <Image
             key={index}
-            source={image}
+            source={{uri:image}}
             style={styles.image}
             resizeMode="cover"
           />

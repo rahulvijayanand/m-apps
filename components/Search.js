@@ -12,7 +12,7 @@ import TextSemiBold from "../fonts/TextSemiBold";
 
 const { width } = Dimensions.get("window");
 
-const Search = ({ type, navigation }) => {
+const Search = ({ type, navigation,category}) => {
   const renderFilter = () => {
     return (
       <View
@@ -36,7 +36,7 @@ const Search = ({ type, navigation }) => {
           }}
         >
           <TextInput
-            placeholder="Search for selfcare"
+            placeholder={"Search for "+ category}
             placeholderTextColor={"#263d2c"}
             style={{
               height: 45,

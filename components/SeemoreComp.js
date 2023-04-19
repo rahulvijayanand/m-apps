@@ -13,7 +13,7 @@ const ImageDisplay = ({ image, onClose }) => {
   return (
     <Modal animationType="slide" visible={true} onRequestClose={onClose}>
       <View style={styles.imageDisplayContainer}>
-        <Image source={image} style={styles.imageDisplay} resizeMode="contain" />
+        <Image source={{uri:image}} style={styles.imageDisplay} resizeMode="contain" />
         <TouchableOpacity style={styles.closeButton} onPress={onClose}>
           <Text style={styles.closeButtonText}>Close</Text>
         </TouchableOpacity>
@@ -39,7 +39,7 @@ const PhotoGallery = ({ images }) => {
         {images.map((image, index) => (
           <TouchableOpacity key={index} onPress={() => handleImagePress(index)}>
             <Image
-              source={image}
+              source={{uri:image}}
               style={[
                 styles.image,
                 selectedImage === image ? styles.selectedImage : null,

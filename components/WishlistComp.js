@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useContext,useEffect,useCallback} from "react";
 import {
   View,
   Image,
@@ -10,10 +10,13 @@ import Text from "../fonts/Text";
 import TextSemiBold from "../fonts/TextSemiBold";
 import RatingComponent from "./Rating";
 import LikeButton from "./LikeButton";
+import productdata from "../productdata.json";
+import { productcontext } from "../Context/context";
 
 const { width, height } = Dimensions.get("window");
 
 const RectangularComponent = ({
+  id,
   imageSource,
   title,
   ratings,
@@ -26,6 +29,28 @@ const RectangularComponent = ({
 }) => {
   const availableColors = colors.slice(0, 3);
   const moreColors = colors.slice(3);
+
+  const { product } = useContext(productcontext);
+  const [currentproductdata, setproductdata] = product;
+
+  const modifyObject = useCallback((id, newvalue) => {
+    const updatedList = [...currentproductdata];
+    updatedList[id] = {
+      ...updatedList[id],
+      iscart: newvalue,
+    };
+    setproductdata(updatedList);
+  },[currentproductdata]);
+
+  const Renderlikebutton=()=>{
+    return (
+      <LikeButton id={id}/>
+    );
+  }
+  useEffect(() => {
+   Renderlikebutton();
+  }, [currentproductdata]);
+
   return (
     <View
       style={{
@@ -58,7 +83,7 @@ const RectangularComponent = ({
           </View>
         )}
         <Image
-          source={imageSource}
+          source={{uri:imageSource}}
           style={{ width: "40%", height: "100%", borderRadius: 8 }}
           resizeMode="cover"
         />
@@ -146,7 +171,20 @@ const RectangularComponent = ({
             )}
           </View>
           <View style={{ flexDirection: "row" }}>
-            <TouchableOpacity activeOpacity={0.5} style={styles.cart}>
+          <TouchableOpacity
+            activeOpacity={0.5}
+            style={{
+              backgroundColor: currentproductdata[id].iscart?"white":"#263d2c",
+              width: width * 0.39,
+              height: height * 0.04,
+              borderRadius: height * 0.01,
+              justifyContent: "center",
+              alignItems: "center",
+              marginTop: height * 0.02,
+            }}
+            onPress={() => modifyObject(id, !currentproductdata[id].iscart)}
+          >
+            {!currentproductdata[id].iscart && (
               <TextSemiBold
                 style={{
                   fontSize: 12,
@@ -155,10 +193,21 @@ const RectangularComponent = ({
               >
                 Add to Cart
               </TextSemiBold>
-            </TouchableOpacity>
+            )}
+            {currentproductdata[id].iscart && (
+              <TextSemiBold
+                style={{
+                  fontSize: 12,
+                  color: "#263d2c",
+                }}
+              >
+                Added!
+              </TextSemiBold>
+            )}
+          </TouchableOpacity>
 
             <View style={styles.like}>
-              <LikeButton />
+            <Renderlikebutton/>
             </View>
           </View>
         </View>

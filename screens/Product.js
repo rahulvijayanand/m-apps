@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext,useEffect } from "react";
 import {
   View,
   StyleSheet,
@@ -19,15 +19,27 @@ import LikeButton from "../components/LikeButton";
 import SquareComponent from "../components/SquareProduct";
 import ProdComponent from "../components/ProdDesc";
 import ReviewComp from "../components/ReviewsComp";
+import productdata from "../productdata.json";
+import { productcontext } from "../Context/context";
 
 const { width, height } = Dimensions.get("window");
 
-const ProductScreen = ({ navigation }) => {
+const ProductScreen = ({ route, navigation }) => {
+  const { id } = route.params;
   const images = [
     require("../assets/A1.png"),
     require("../assets/A2.png"),
     require("../assets/A3.png"),
   ];
+
+  const Renderlikebutton=()=>{
+    return (
+      <LikeButton id={id}/>
+    );
+  }
+  useEffect(() => {
+   Renderlikebutton();
+  }, [currentproductdata]);
 
   const items = [
     { image: require("../assets/original.png"), text: "Authentic Products" },
@@ -88,10 +100,20 @@ const ProductScreen = ({ navigation }) => {
   };
 
   const rating = 4.8;
+  const { product } = useContext(productcontext);
+  const [currentproductdata, setproductdata] = product;
+
+  const modifyObject = (id, newvalue) => {
+    setproductdata(currentproductdata =>
+      currentproductdata.map((obj) =>
+        obj.id === id ? { ...obj, iscart: newvalue } : obj
+      )
+    );
+  };
 
   return (
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
-      <ImageCarousel images={images} />
+      <ImageCarousel images={productdata[id].images} />
       <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
         <TextSemiBold
           style={{
@@ -102,7 +124,7 @@ const ProductScreen = ({ navigation }) => {
             width: 310,
           }}
         >
-          Phaila Hydrating Handmade Soap Bars
+          {currentproductdata[id].name}
         </TextSemiBold>
         <TouchableOpacity onPress={onShare} activeOpacity={0.4}>
           <Image
@@ -118,14 +140,14 @@ const ProductScreen = ({ navigation }) => {
         </TouchableOpacity>
       </View>
       <View style={{ marginLeft: 20, flexDirection: "row", marginTop: 5 }}>
-        <RatingComponent rating={rating} starSize={23}/>
+        <RatingComponent rating={rating} starSize={23} />
         <TextSemiBold style={{ alignSelf: "flex-end", marginLeft: 5 }}>
-          {rating}/5
+          {currentproductdata[id].rating}/5
         </TextSemiBold>
         <Text
           style={{ alignSelf: "flex-end", marginLeft: 5, color: "#b2c4b8" }}
         >
-          (1088)
+          ({currentproductdata[id].verified_buyers})
         </Text>
       </View>
       <View style={{ marginLeft: 20, marginTop: 10 }}>
@@ -138,11 +160,11 @@ const ProductScreen = ({ navigation }) => {
             marginTop: 5,
           }}
         >
-          MRP ₹599
+          MRP ₹{currentproductdata[id].originalprice}
         </Text>
         <View style={{ flexDirection: "row" }}>
           <TextSemiBold style={{ fontSize: 18, marginTop: 5 }}>
-            ₹350
+            ₹{currentproductdata[id].priceafterdiscount}
           </TextSemiBold>
           <TextSemiBold
             style={{
@@ -153,7 +175,7 @@ const ProductScreen = ({ navigation }) => {
               color: "#91e2a8",
             }}
           >
-            30% off
+            {currentproductdata[id].offerpercentage}% off
           </TextSemiBold>
         </View>
         <Text
@@ -168,26 +190,50 @@ const ProductScreen = ({ navigation }) => {
         </Text>
       </View>
       <View style={{ marginTop: 15 }}>
-        <ColorDropdown />
+        <ColorDropdown id={id} />
       </View>
       <ImageTextGrid items={items} />
       <View style={{ marginTop: 20 }}>
         <DeliveryProd />
       </View>
       <View style={{ flexDirection: "row", marginLeft: 20, marginRight: 20 }}>
-        <TouchableOpacity activeOpacity={0.5} style={styles.cart}>
-          <TextSemiBold
-            style={{
-              fontSize: 16,
-              color: "#91e2a8",
-            }}
-          >
-            Add to Cart
-          </TextSemiBold>
+        <TouchableOpacity
+          activeOpacity={0.5}
+          style={{
+            backgroundColor:currentproductdata[id].iscart ? "#91e2a8":"#263d2c",
+            width: width * 0.751,
+            height: height * 0.055,
+            borderRadius: height * 0.01,
+            justifyContent: "center",
+            alignItems: "center",
+            marginTop: height * 0.04,
+          }}
+          onPress={() => modifyObject(id, !currentproductdata[id].iscart)}
+        >
+          {!currentproductdata[id].iscart && (
+            <TextSemiBold
+              style={{
+                fontSize: 16,
+                color: "#91e2a8",
+              }}
+            >
+              Add to Cart
+            </TextSemiBold>
+          )}
+          {currentproductdata[id].iscart && (
+            <TextSemiBold
+              style={{
+                fontSize: 16,
+                color: "#263d2c",
+              }}
+            >
+              Added to your cart !
+            </TextSemiBold>
+          )}
         </TouchableOpacity>
 
         <View style={styles.like}>
-          <LikeButton />
+          <Renderlikebutton/>
         </View>
       </View>
       <View style={{ backgroundColor: "#f7f7f7", marginTop: 40 }}>
@@ -195,7 +241,7 @@ const ProductScreen = ({ navigation }) => {
           Offers
         </TextSemiBold>
         <ScrollView horizontal={true} showsHorizontalScrollIndicator={false}>
-          {data.map((square, index) => (
+          {currentproductdata[id].offers.map((square, index) => (
             <SquareComponent
               key={index}
               title={square.title}
@@ -213,7 +259,7 @@ const ProductScreen = ({ navigation }) => {
             paddingBottom: 20,
           }}
         >
-          {data2.map((item, index) => (
+          {currentproductdata[id].product_details.map((item, index) => (
             <ProdComponent key={index} title={item.title} text={item.text} />
           ))}
         </View>
@@ -226,7 +272,7 @@ const ProductScreen = ({ navigation }) => {
           marginTop: 20,
         }}
       >
-        <ReviewComp />
+        <ReviewComp id={id} />
       </View>
       <View style={{ marginBottom: 100 }}></View>
     </ScrollView>
