@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { StyleSheet, TouchableOpacity, Image } from "react-native";
-
+import { StyleSheet, TouchableOpacity, Image,View,StatusBar } from "react-native";
+import Toast from "./Toast";
+import { Constants } from "expo-constants";
 const LikeButton = () => {
   const [liked, setLiked] = useState(false);
 
@@ -9,7 +10,9 @@ const LikeButton = () => {
   };
 
   return (
-    <TouchableOpacity onPress={toggleLiked} style={styles.container}>
+    
+
+<TouchableOpacity onPress={toggleLiked} style={styles.container}>
       <Image
         source={
           liked
@@ -19,6 +22,11 @@ const LikeButton = () => {
         style={styles.icon}
       />
     </TouchableOpacity>
+   
+
+    
+     
+        
   );
 };
 

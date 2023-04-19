@@ -5,6 +5,7 @@ import {
   Image,
   ImageBackground,
   StatusBar,
+  TouchableOpacity
 } from "react-native";
 import { AntDesign, MaterialIcons, Octicons } from "@expo/vector-icons";
 import Location from "../components/Location";
@@ -24,11 +25,11 @@ const state = [
   { id: 4, info: "Delivered", pos: false },
 ];
 const Info = [
-  { id: 1, name: "Order Summary" },
-  { id: 2, name: "Download Invoice" },
-  { id: 3, name: "Leave a Feedback" },
-  { id: 4, name: "Write a Review" },
-  { id: 5, name: "Cancellation" },
+  { id: 1, name: "Order Summary",navi:"Ordersummary" },
+  { id: 2, name: "Download Invoice",navi:"Tracking" },
+  { id: 3, name: "Leave a Feedback",navi:"Tracking" },
+  { id: 4, name: "Write a Review",navi:"Tracking"},
+  { id: 5, name: "Cancellation",navi:"Tracking"},
 ];
 export default function Tracking({ navigation }) {
   return (
@@ -120,7 +121,7 @@ export default function Tracking({ navigation }) {
       <View>
         {Info.map((item, index) => (
           <View>
-            <View
+            <TouchableOpacity onPress={() => navigation.navigate(item.navi)}
               style={{
                 marginHorizontal: "3%",
                 flexDirection: "row",
@@ -139,7 +140,7 @@ export default function Tracking({ navigation }) {
                 size={24}
                 color="black"
               />
-            </View>
+            </TouchableOpacity>
             <View
               style={{ height: 1, borderWidth: 0.5, borderColor: "#d0d6d4" }}
             />
