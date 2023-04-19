@@ -1,14 +1,18 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {
   StyleSheet,
   View,
-  StatusBar,
+  StatusBar, Image, Dimensions,
   ScrollView,
   Pressable,
 } from "react-native";
 import Text from "../fonts/Text";
 import Location from "../components/Location";
 import WishlistComp from "../components/WishlistComp";
+import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
+import productdata from "../productdata.json";
+import { productcontext } from "../Context/context";
+const { width, height } = Dimensions.get("window");
 
 const wishlistcop = [
   {
@@ -65,28 +69,71 @@ const wishlistcop = [
   },
 ];
 
-function Wishlist({ navigation }) {
+function Wishlist({ route, navigation }) {
+  const { product } = useContext(productcontext);
+  const [currentproductdata, setproductdata] = product;
+  const [iswishlistlength, setwishlistlength] = useState(0);
+
+  useEffect(() => {
+    let len = 0;
+    for (let i = 0; i < currentproductdata.length; i++) {
+      if (currentproductdata[i].isliked) {
+        len = len + 1;
+      }
+    }
+    setwishlistlength(len);
+  }, [currentproductdata]);
+
   return (
     <View style={styles.container}>
       <View style={{ marginBottom: 30 }}>
         <Location navigation={navigation} type="wishlist" />
       </View>
+      {iswishlistlength == 0 && (
+        <Image
+          source={require("../assets/empty-wishlist.png")}
+          style={{
+            width: width * 1,
+            height: height * 0.4,
+            resizeMode: "cover",
+            alignSelf: "center",
+            top: 70,
+          }}
+        />
+      )}
+
+      {iswishlistlength == 0 && (
+        <Text
+          style={{
+            color: "#0d98ba",
+            alignSelf: "center",
+            top: 100,
+            opacity: 0.5,
+          }}
+        >
+          Your Wishlist is Empty !
+        </Text>
+      )}
       <ScrollView showsVerticalScrollIndicator={false}>
-        {wishlistcop.map((item) => (
-          <WishlistComp
-            imageSource={item.imageSource}
-            title={item.title}
-            ratings={item.ratings}
-            numReviews={item.numReviews}
-            oldPrice={item.oldPrice}
-            newPrice={item.newPrice}
-            discount={item.discount}
-            colors={item.colors}
-            type={item.type}
-            navigation={navigation}
-            navi={"Products"}
-          />
-        ))}
+        {currentproductdata.map(
+          (item) =>
+            item.isliked && (
+              <TouchableOpacity onPress={() => {navigation.navigate("Products",{id:item.id})}}>
+                <WishlistComp
+                  id={item.id}
+                  imageSource={item.images[0]}
+                  title={item.name}
+                  ratings={item.rating}
+                  numReviews={item.verified_buyers}
+                  oldPrice={item.originalprice}
+                  newPrice={item.priceafterdiscount}
+                  discount={item.offerpercentage}
+                  colors={item.variants["variantcolor"]}
+                  type={item.type}
+                />
+              </TouchableOpacity>
+            )
+        )}
         <View style={{ marginBottom: 85 }}></View>
       </ScrollView>
     </View>

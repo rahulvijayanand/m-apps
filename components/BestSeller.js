@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext,useCallback,useEffect, useState } from "react";
 import {
   StyleSheet,
   View,
@@ -10,10 +10,16 @@ import TextSemiBold from "../fonts/TextSemiBold";
 import Text from "../fonts/Text";
 import RatingComponent from "./Rating";
 import LikeButton from "./LikeButton";
-
+import productdata from "../productdata.json";
+import { productcontext } from "../Context/context";
+import { TouchableWithoutFeedback } from "react-native-gesture-handler";
+import { TouchableNativeFeedback } from "react-native-web";
+import { useSafeAreaFrame } from "react-native-safe-area-context";
 const { width, height } = Dimensions.get("window");
 
+
 const BestSeller = ({
+  id,
   title,
   rating,
   numReviews,
@@ -22,10 +28,34 @@ const BestSeller = ({
   discount,
   imageSource,
 }) => {
+  const { product } = useContext(productcontext);
+  const [currentproductdata, setproductdata] = product;
+  const modifyObject = useCallback
+  ((id, newvalue) => {
+    const updatedList = [...currentproductdata];
+    updatedList[id] = {
+      ...updatedList[id],
+      iscart: newvalue,
+    };
+    setproductdata(updatedList);
+  },[currentproductdata]);
+
+  const Renderlikebutton=()=>{
+    return (
+      <LikeButton id={id}/>
+    );
+  }
+  useEffect(() => {
+   Renderlikebutton();
+  }, [currentproductdata]);
+
+  
+  
+
   return (
     <View style={styles.wrapper}>
       <View style={styles.container}>
-        <Image source={imageSource} style={styles.image} />
+        <Image source={{ uri: imageSource }} style={styles.image} />
         <View
           style={{
             width: 80,
@@ -89,19 +119,43 @@ const BestSeller = ({
           </TextSemiBold>
         </View>
         <View style={{ flexDirection: "row" }}>
-          <TouchableOpacity activeOpacity={0.5} style={styles.cart}>
-            <TextSemiBold
-              style={{
-                fontSize: 12,
-                color: "#91e2a8",
-              }}
-            >
-              Add to Cart
-            </TextSemiBold>
+          <TouchableOpacity
+            activeOpacity={0.5}
+            style={{
+              backgroundColor: currentproductdata[id].iscart?"white":"#263d2c",
+              width: width * 0.29,
+              height: height * 0.04,
+              borderRadius: height * 0.01,
+              justifyContent: "center",
+              alignItems: "center",
+              marginTop: height * 0.02,
+            }}
+            onPress={() => {modifyObject(id,!currentproductdata[id].iscart)}}
+          >
+            {!currentproductdata[id].iscart && (
+              <TextSemiBold
+                style={{
+                  fontSize: 12,
+                  color: "#91e2a8",
+                }}
+              >
+                Add to Cart
+              </TextSemiBold>
+            )}
+            {currentproductdata[id].iscart && (
+              <TextSemiBold
+                style={{
+                  fontSize: 12,
+                  color: "#263d2c",
+                }}
+              >
+                Added!
+              </TextSemiBold>
+            )}
           </TouchableOpacity>
 
           <View style={styles.like}>
-            <LikeButton />
+            <Renderlikebutton/>
           </View>
         </View>
       </View>

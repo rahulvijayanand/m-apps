@@ -11,13 +11,14 @@ import Text from "../fonts/Text";
 import Location from "../components/Location";
 import CategoryComponent from "../components/CategoryComponent";
 const categoryimagelist = [
-  { image: require("../assets/Selfcare.png"), name: "Selfcare" },
-  { image: require("../assets/gifts.png"), name: "Gifts" },
-  { image: require("../assets/jewellery.png"), name: "Jewellery" },
-  { image: require("../assets/crafts.png"), name: "Crafts" },
-  { image: require("../assets/fashion.png"), name: "Fashion" },
+  { image: require("../assets/Selfcare.png"), name: "Selfcare",category:"selfcare" },
+  { image: require("../assets/fashion.png"), name: "Home & Living",category:"homeandliving"},
+  { image: require("../assets/gifts.png"), name: "Gifts",category:"gift"},
+  { image: require("../assets/jewellery.png"), name: "Jewellery",category:"jewellery"},
+  { image: require("../assets/crafts.png"), name: "Crafts",category:"craft"  },
+  { image: require("../assets/fashion.png"), name: "Fashion",category:"fashion"  },
 ];
-function CategoriesScreen({ navigation }) {
+function CategoriesScreen({ route,navigation }) {
   return (
     <View style={styles.container}>
       <View style={{ marginBottom: 30 }}>
@@ -25,7 +26,7 @@ function CategoriesScreen({ navigation }) {
       </View>
       <ScrollView showsVerticalScrollIndicator={false}>
         {categoryimagelist.map((item) => (
-          <Pressable onPress={() => navigation.navigate("Categores")}>
+          <Pressable onPress={() => navigation.navigate("Categores",{category:item.category})}>
             <CategoryComponent image={item.image} name={item.name} />
           </Pressable>
         ))}

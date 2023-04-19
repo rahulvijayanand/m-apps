@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useContext} from "react";
 import { View, StyleSheet, TouchableOpacity } from "react-native";
 import Text from "../fonts/Text";
 import TextSemiBold from "../fonts/TextSemiBold";
@@ -6,14 +6,19 @@ import CustomerReviews from "./Reviews";
 import RatingComponent from "./RatingLarge";
 import PhotoGallery from "./SeemoreComp";
 import ReviewList from "./CReviewComp";
+import { productcontext } from "../Context/context";
+import productdata from "../productdata.json";
 
-const ReviewComp = () => {
+const ReviewComp = (props) => {
+  const {product}=useContext(productcontext);
+  const [currentproductdata,setproductdata]=product;
+
   const ratings = {
-    5: 458,
-    4: 387,
-    3: 286,
-    2: 224,
-    1: 243,
+    5: currentproductdata[props.id]["5star"],
+    4: currentproductdata[props.id]["4star"],
+    3: currentproductdata[props.id]["3star"],
+    2: currentproductdata[props.id]["2star"],
+    1: currentproductdata[props.id]["1star"],
   };
   const images = [
     require("../assets/A1.png"),
@@ -49,6 +54,8 @@ const ReviewComp = () => {
     },
   ];
   const rating = 4.8;
+  
+
   return (
     <View>
       <View style={styles.container}>
@@ -61,7 +68,7 @@ const ReviewComp = () => {
             marginTop: 25,
           }}
         >
-          <Text style={[styles.text, { fontSize: 56 }]}>{rating}</Text>
+          <Text style={[styles.text, { fontSize: 56 }]}>{currentproductdata[props.id].rating}</Text>
           <View style={{ marginLeft: 10 }}>
             <View
               style={{
@@ -70,9 +77,9 @@ const ReviewComp = () => {
                 marginLeft: 7.5,
               }}
             >
-              <RatingComponent rating={rating} starSize={23} />
+              <RatingComponent rating={currentproductdata[props.id].rating} starSize={23} />
             </View>
-            <Text style={{ marginTop: 5 }}>1088 verified buyers</Text>
+            <Text style={{ marginTop: 5 }}>{currentproductdata[props.id].verified_buyers} verified buyers</Text>
           </View>
         </View>
         <View style={{ alignItems: "center" }}>
@@ -84,7 +91,7 @@ const ReviewComp = () => {
             Customer Photos
           </TextSemiBold>
           <View style={{ marginLeft: 25, marginRight: 25 }}>
-            <PhotoGallery images={images} />
+            <PhotoGallery images={currentproductdata[props.id].images} />
           </View>
         </View>
         <View>
@@ -92,7 +99,7 @@ const ReviewComp = () => {
             Customer Reviews
           </TextSemiBold>
           <View style={{ padding: 20 }}>
-            <ReviewList reviews={reviewsData} />
+            <ReviewList reviews={currentproductdata[props.id].reviews} />
           </View>
         </View>
         <TouchableOpacity

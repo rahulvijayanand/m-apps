@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useContext } from "react";
 import {
   View,
   TouchableOpacity,
@@ -8,13 +8,10 @@ import {
 } from "react-native";
 import Text from "../fonts/Text";
 import TextSemiBold from "../fonts/TextSemiBold";
+import productdata from "../productdata.json";
+import { productcontext } from "../Context/context";
 
-const options = [
-  { name: "Ocean Extracts", color: "#9747FF", inStock: true },
-  { name: "Neem & Tulsi", color: "#92E3A9", inStock: false },
-  { name: "Charcoal", color: "#1E1E1E", inStock: true },
-  { name: "Milk & Honey", color: "#FBBC05", inStock: true },
-];
+
 
 const Option = ({ name, color, disabled }) => (
   <View style={{ flexDirection: "row", alignItems: "center" }}>
@@ -35,9 +32,21 @@ const Option = ({ name, color, disabled }) => (
   </View>
 );
 
-const Dropdown = () => {
+const Dropdown = (props) => {
   const [visible, setVisible] = useState(false);
-  const [selectedOption, setSelectedOption] = useState(options[0]);
+  const {product}=useContext(productcontext);
+  const [currentproductdata,setproductdata]=product;
+
+  const [selectedOption, setSelectedOption] = useState(currentproductdata[props.id]["variants"][0]);
+
+  
+
+  const options = [
+    { name: "Ocean Extracts", color: "#9747FF", inStock: true },
+    { name: "Neem & Tulsi", color: "#92E3A9", inStock: false },
+    { name: "Charcoal", color: "#1E1E1E", inStock: true },
+    { name: "Milk & Honey", color: "#FBBC05", inStock: true },
+  ];
 
   const toggleDropdown = () => {
     setVisible(!visible);
@@ -57,10 +66,10 @@ const Dropdown = () => {
         paddingTop: 15,
         paddingBottom: 15,
         backgroundColor:
-          item.name === selectedOption.name ? "#91e2a8" : "#e9f9ee",
+        item.variantname === selectedOption.variantname ? "#91e2a8" : "#e9f9ee",
         borderRadius: 10,
         position: "relative",
-        elevation: item.name === selectedOption.name ? 5 : 0,
+        elevation: item.variantname === selectedOption.variantname ? 5 : 0,
         shadowColor: "#000",
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
@@ -72,7 +81,7 @@ const Dropdown = () => {
       onPress={() => item.inStock && handleOptionSelect(item)}
       disabled={!item.inStock}
     >
-      <Option name={item.name} color={item.color} disabled={!item.inStock} />
+      <Option name={item.variantname} color={item.variantcolor} disabled={!item.inStock} />
     </TouchableOpacity>
   );
 
@@ -96,14 +105,14 @@ const Dropdown = () => {
               width: 20,
               height: 20,
               borderRadius: 15,
-              backgroundColor: selectedOption.color,
+              backgroundColor: selectedOption.variantcolor,
               borderWidth: 1,
               marginRight: 5,
             }}
           ></View>
           <View style={{ flexDirection: "row" }}>
             <TextSemiBold style={{ fontSize: 14 }}>
-              {selectedOption.name}
+              {selectedOption.variantname}
             </TextSemiBold>
             <Text style={{ fontSize: 12, alignSelf: "center", marginLeft: 5 }}>
               (Selected variant)
@@ -124,10 +133,10 @@ const Dropdown = () => {
       {visible && (
         <FlatList
           style={{ borderTopWidth: 1, borderTopColor: "#c2e3c8" }}
-          data={options}
+          data={currentproductdata[props.id]["variants"]}
           numColumns={2}
           renderItem={renderItem}
-          keyExtractor={(item) => item.name}
+          keyExtractor={(item) => item.variantname}
         />
       )}
     </View>

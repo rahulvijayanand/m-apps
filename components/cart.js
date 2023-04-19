@@ -2,9 +2,9 @@ import React from "react";
 import { View, Image, StyleSheet, TouchableOpacity } from "react-native";
 import TextSemiBold from "../fonts/TextSemiBold";
 
-const ShoppingCartIcon = ({ itemsInCart }) => {
+const ShoppingCartIcon = ({ itemsInCart,navigation }) => {
   return (
-    <TouchableOpacity activeOpacity={0.4} style={styles.container}>
+    <TouchableOpacity activeOpacity={0.4} style={styles.container} onPress={() => navigation.navigate("CartPage")}>
       <Image source={require("../assets/Vector.png")} style={styles.icon} />
       {itemsInCart > 0 && (
         <View style={styles.bubble}>
