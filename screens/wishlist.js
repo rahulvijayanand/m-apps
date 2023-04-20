@@ -10,6 +10,7 @@ import {
 import Text from "../fonts/Text";
 import Location from "../components/Location";
 import WishlistComp from "../components/WishlistComp";
+import {TouchableOpacity } from "react-native-gesture-handler";
 import productdata from "../productdata.json";
 import { productcontext } from "../Context/context";
 const { width, height } = Dimensions.get("window");

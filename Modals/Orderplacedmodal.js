@@ -54,7 +54,7 @@ const ModalPoup = ({ visible, children }) => {
   );
 };
 
-const App = () => {
+const App = ({navigation}) => {
   const [visible, setVisible] = React.useState(false);
   const [imagePosition, setImagePosition] = useState({ x: 0, y: 0 });
 
@@ -64,10 +64,27 @@ const App = () => {
   };
 
   return (
-    <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
-      <Pressable onPress={() => setVisible(true)}>
-        <Text style={{ fotweight: "bold" }}>Order</Text>
-      </Pressable>
+    <View style={{ flex: 1 }}>
+      
+      <TouchableOpacity onPress={() => setVisible(true)}
+        style={{
+          marginVertical: '10%',
+          marginHorizontal: '5%',
+          backgroundColor: 'black',
+          padding: '3%',
+          borderRadius: 10,
+        }}>
+        <Text
+          style={{
+            color: '#92E38A',
+            textAlign: 'center',
+            fontWeight: 'bold',
+            fontSize: 20,
+          }}>
+        CONTINUE
+        </Text>
+      </TouchableOpacity>
+      
       <ModalPoup visible={visible}>
         <View>
           <View style={{ alignItems: "center" }}>
@@ -141,7 +158,7 @@ const App = () => {
             email with details of your order
           </Text>
           <View style={{ alignItems: "center", justifyContent: "center" }}>
-            <TouchableOpacity
+            <TouchableOpacity onPress={()=>{navigation.navigate("HomeScreen"),setVisible(false)}}
               style={{
                 height: 50,
                 width: "80%",
@@ -151,7 +168,7 @@ const App = () => {
                 backgroundColor: "#FF7000",
                 bottom: -50,
               }}
-              onPress={() => setVisible(false)}
+              
             >
               <Text
                 style={{ fontWeight: "bold", fontSize: 18, color: "white" }}

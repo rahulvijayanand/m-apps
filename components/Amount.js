@@ -1,6 +1,6 @@
 import React from "react";
 import {View,Text,TouchableOpacity} from "react-native"; 
-
+import TextSemiBold from "../fonts/TextSemiBold"
 const Amount=(props)=>{
   return(
     <TouchableOpacity 
@@ -14,7 +14,7 @@ const Amount=(props)=>{
           justifyContent:"space-between",
           flexDirection:"row"
         }}>
-        <Text
+        <TextSemiBold
           style={{
           
             fontWeight: 'bold',
@@ -22,7 +22,7 @@ const Amount=(props)=>{
           }}>
        Amount Payable 
      
-        </Text>
+        </TextSemiBold>
           <Text  style={{
           
             fontWeight: 'bold',
