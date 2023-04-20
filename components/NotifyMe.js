@@ -93,6 +93,7 @@ const NotifyMe = () => {
             marginLeft: 20,
             marginTop: 15,
             marginRight: 20,
+            textAlign:'justify',
           }}
         >
           Lorem Ipsum is simply dummy text of the printing and typesetting
