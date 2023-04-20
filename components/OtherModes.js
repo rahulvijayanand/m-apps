@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, TouchableOpacity } from "react-native";
 
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-
+import TextSemiBold from "../fonts/TextSemiBold";
+import Text from "../fonts/Text";
 const Othermodes = ({ onlinepay, other }) => {
   const [opt1, setopt1] = useState([true, false, false]);
 
@@ -79,16 +80,16 @@ const Othermodes = ({ onlinepay, other }) => {
                 />
               </TouchableOpacity>
               <View style={{ flex: 2 }}>
-                <Text
+                <TextSemiBold
                   style={{
                     fontSize: 14,
                     marginLeft: "4%",
                     marginBottom: "2%",
-                    fontWeight: "bold",
+                   
                   }}
                 >
                   {item.name}
-                </Text>
+                </TextSemiBold>
                 {index == 0 || index == 2 ? (
                   <View style={{ marginLeft: "4%" }}>
                     <Text>

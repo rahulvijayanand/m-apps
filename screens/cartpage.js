@@ -26,14 +26,16 @@ const cartpage = ({ route, navigation }) => {
   }, [currentproductdata]);
 
   return (
-    <ScrollView
-      showsVerticalScrollIndicator={false}
-      style={{ backgroundColor: "white" }}
-    >
+   
       <View style={styles.container}>
+         
         <View style={{ marginBottom: 30 }}>
           <Location navigation={navigation} type="cart" />
         </View>
+        <ScrollView
+      showsVerticalScrollIndicator={false}
+      style={{ backgroundColor: "white" }}
+    >
         {iscartlength != 0 && (
           <TouchableOpacity onPress={() => {navigation.navigate("Payments")}}>
           <View
@@ -126,8 +128,9 @@ const cartpage = ({ route, navigation }) => {
           </TouchableOpacity>
         )}
         {iscartlength != 0 && <View style={{ marginBottom: 150 }}></View>}
+        </ScrollView>
       </View>
-    </ScrollView>
+    
   );
 };
 

@@ -164,12 +164,7 @@ export default function Navigation({ navigation }) {
               </Text>
             </View>
           ),
-          tabBarButton: (props) => (
-            <TouchableOpacity
-              {...props}
-              onPress={() => navigation.navigate("AccountStack")}
-            />
-          ),
+          
         }}
       ></Tab.Screen>
     </Tab.Navigator>
