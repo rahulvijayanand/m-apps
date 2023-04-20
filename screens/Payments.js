@@ -91,7 +91,7 @@ export default function Payments({ route, navigation }) {
           </View>
           <Othermodes onlinepay={Onlinepay} other={others} />
         </View>
-        <View style={{ bottom: 50, marginTop: 20 }}>
+        <View style={{ bottom: 40, marginTop: 20, marginBottom: 15 }}>
           <Modal />
         </View>
       </ScrollView>

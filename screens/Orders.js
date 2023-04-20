@@ -52,9 +52,8 @@ export default function Orders({ navigation }) {
       <View
         style={{ marginTop: StatusBar.currentHeight + 10, marginBottom: 30 }}
       >
-        <Location type="other" text="Orders" />
+        <Location navigation={navigation} type="other" text="Orders" />
       </View>
-
       {Details.map((item, index) => (
         <Pressable onPress={() => navigation.navigate("Tracking")}>
           <Orderscomp

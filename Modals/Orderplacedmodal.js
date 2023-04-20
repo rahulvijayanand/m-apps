@@ -12,6 +12,7 @@ import {
 } from "react-native";
 import { Entypo } from "@expo/vector-icons";
 import Text from "../fonts/Text";
+import TextSemiBold from "../fonts/TextSemiBold";
 let containerHeight = 350,
   containerWidth = 300;
 
@@ -54,7 +55,7 @@ const ModalPoup = ({ visible, children }) => {
   );
 };
 
-const App = ({navigation}) => {
+const App = ({ navigation }) => {
   const [visible, setVisible] = React.useState(false);
   const [imagePosition, setImagePosition] = useState({ x: 0, y: 0 });
 
@@ -65,26 +66,28 @@ const App = ({navigation}) => {
 
   return (
     <View style={{ flex: 1 }}>
-      
-      <TouchableOpacity onPress={() => setVisible(true)}
+      <TouchableOpacity
+        onPress={() => setVisible(true)}
         style={{
-          marginVertical: '10%',
-          marginHorizontal: '5%',
-          backgroundColor: 'black',
-          padding: '3%',
+          marginVertical: "10%",
+          marginHorizontal: "5%",
+          backgroundColor: "black",
+          padding: "3%",
           borderRadius: 10,
-        }}>
+        }}
+      >
         <Text
           style={{
-            color: '#92E38A',
-            textAlign: 'center',
-            fontWeight: 'bold',
+            color: "#92E38A",
+            textAlign: "center",
+            fontWeight: "bold",
             fontSize: 20,
-          }}>
-        CONTINUE
+          }}
+        >
+          CONTINUE
         </Text>
       </TouchableOpacity>
-      
+
       <ModalPoup visible={visible}>
         <View>
           <View style={{ alignItems: "center" }}>
@@ -118,22 +121,19 @@ const App = ({navigation}) => {
               />
             </ImageBackground>
           </View>
-          <Text
+          <TextSemiBold
             style={{
               marginTop: "2%",
               fontSize: 20,
               textAlign: "center",
-              fontWeight: "bold",
             }}
           >
             Woohoo!
-          </Text>
+          </TextSemiBold>
 
-          <Text
-            style={{ fontSize: 20, textAlign: "center", fontWeight: "bold" }}
-          >
+          <TextSemiBold style={{ fontSize: 17, textAlign: "center" }}>
             Your Order has been placed
-          </Text>
+          </TextSemiBold>
           <View
             style={{
               marginTop: "5%",
@@ -141,24 +141,27 @@ const App = ({navigation}) => {
               justifyContent: "center",
             }}
           >
-            <Text style={{ fontSize: 18 }}> Thank you for your purchase</Text>
+            <Text style={{ fontSize: 16 }}> Thank you for your purchase</Text>
           </View>
           <Text
             style={{ marginVertical: 10, fontSize: 12, textAlign: "center" }}
           >
             Your Order ID is:
-            <Text style={{ fontWeight: "bold" }}> 123456789100</Text>
+            <TextSemiBold style={{}}> 123456789100</TextSemiBold>
           </Text>
           <View style={{ marginHorizontal: "3%" }}>
-            <Text style={{ fontSize: 12 }}>
+            <Text style={{ fontSize: 11.5, textAlign: "center" }}>
               You will receive an order confirmation{" "}
             </Text>
           </View>
-          <Text style={{ fontSize: 12, textAlign: "center" }}>
+          <Text style={{ fontSize: 11.5, textAlign: "center" }}>
             email with details of your order
           </Text>
           <View style={{ alignItems: "center", justifyContent: "center" }}>
-            <TouchableOpacity onPress={()=>{navigation.navigate("HomeScreen"),setVisible(false)}}
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate("HomeScreen"), setVisible(false);
+              }}
               style={{
                 height: 50,
                 width: "80%",
@@ -168,13 +171,10 @@ const App = ({navigation}) => {
                 backgroundColor: "#FF7000",
                 bottom: -50,
               }}
-              
             >
-              <Text
-                style={{ fontWeight: "bold", fontSize: 18, color: "white" }}
-              >
+              <TextSemiBold style={{ fontSize: 18, color: "white" }}>
                 Continue Shopping
-              </Text>
+              </TextSemiBold>
             </TouchableOpacity>
           </View>
         </View>
