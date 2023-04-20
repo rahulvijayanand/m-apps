@@ -31,7 +31,7 @@ const Details = [
     id: 3,
     title: "Orders",
     name: require("../assets/Group-1.png"),
-    navi: "Tracking",
+    navi: "Orders",
   },
   {
     id: 4,
@@ -108,7 +108,7 @@ export default function Account({ navigation }) {
         </View>
         <Pressable style={{ justifyContent: "center", width: "100%" }}>
           <TextSemiBold style={{ marginHorizontal: "3.5%", fontSize: 18 }}>
-            Sunil Kumar
+            Siva Sakthi
           </TextSemiBold>
           <TextSemiBold
             style={{ marginHorizontal: "3%", color: "#8C9F92", fontSize: 12 }}

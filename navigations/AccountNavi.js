@@ -8,6 +8,7 @@ import ProductScreen from "../screens/Product";
 import Notification from "../screens/Notification";
 import Tracking from "../screens/Tracking";
 import OrderSummary from "../screens/OrderSummary";
+import Orders from "../screens/Orders";
 const Stack = createStackNavigator();
 
 function AccountStack() {
@@ -25,6 +26,7 @@ function AccountStack() {
       <Stack.Screen name="Notify" component={Notification} />
       <Stack.Screen name="Tracking" component={Tracking} />
       <Stack.Screen name="Ordersummary" component={OrderSummary} />
+      <Stack.Screen name="Orders" component={Orders} />
     </Stack.Navigator>
   );
 }

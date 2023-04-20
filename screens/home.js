@@ -1,4 +1,4 @@
-import React,{useState,useEffect,useContext} from "react";
+import React, { useState, useEffect, useContext } from "react";
 import {
   StyleSheet,
   View,
@@ -18,8 +18,7 @@ import BestSeller from "../components/BestSeller";
 import productdata from "../productdata.json";
 import { productcontext } from "../Context/context";
 
-
-function HomeScreen({ route,navigation }) {
+function HomeScreen({ route, navigation }) {
   const slides = [
     { image: require("../assets/1.png") },
     { image: require("../assets/2.png") },
@@ -69,8 +68,8 @@ function HomeScreen({ route,navigation }) {
     },
   ];
 
-  const {product}=useContext(productcontext);
-  const [currentproductdata,setproductdata]=product;
+  const { product } = useContext(productcontext);
+  const [currentproductdata, setproductdata] = product;
 
   const handleCartPress = (id) => {
     const newState = currentproductdata.map((item) => {
@@ -81,7 +80,6 @@ function HomeScreen({ route,navigation }) {
     });
     setproductdata(newState);
   };
-
 
   return (
     <View style={styles.container}>
@@ -109,6 +107,8 @@ function HomeScreen({ route,navigation }) {
               require("../assets/R4.png"),
               require("../assets/R5.png"),
             ]}
+            category={["fashion", "craft", "selfcare", "gift", "homeandliving"]}
+            navigation={navigation}
           />
         </View>
         <View>
@@ -127,20 +127,24 @@ function HomeScreen({ route,navigation }) {
           <TextSemiBold style={{ marginLeft: 20, marginTop: 40, fontSize: 20 }}>
             Best Sellers
           </TextSemiBold>
-          <View style={{ flexDirection: "row",flexWrap:"wrap" }}>
-            {currentproductdata.map((item)=>(
-            <Pressable onPress={() => {navigation.navigate("Products",{id:item.id})}}>
-              <BestSeller
-                id={item.id}
-                imageSource={item.images[0]}
-                title={item.name}
-                rating={item.rating}
-                numReviews={item.verified_buyers}
-                oldPrice={item.originalprice}
-                newPrice={item.priceafterdiscount}
-                discount={item.offerpercentage}
-              />
-            </Pressable>
+          <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
+            {currentproductdata.map((item) => (
+              <Pressable
+                onPress={() => {
+                  navigation.navigate("Products", { id: item.id });
+                }}
+              >
+                <BestSeller
+                  id={item.id}
+                  imageSource={item.images[0]}
+                  title={item.name}
+                  rating={item.rating}
+                  numReviews={item.verified_buyers}
+                  oldPrice={item.originalprice}
+                  newPrice={item.priceafterdiscount}
+                  discount={item.offerpercentage}
+                />
+              </Pressable>
             ))}
           </View>
         </View>
