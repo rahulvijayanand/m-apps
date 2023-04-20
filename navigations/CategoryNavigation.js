@@ -6,6 +6,7 @@ import CategoRes from "../screens/CategoRes";
 import ProductScreen from "../screens/Product";
 import cartpage from "../screens/cartpage";
 import Payments from "../screens/Payments";
+import FilterPage from "../screens/FilterPage";
 
 const Stack = createStackNavigator();
 
@@ -22,6 +23,7 @@ function CategoryStack() {
       <Stack.Screen name="Payments" component={Payments} />
       <Stack.Screen name="Categores" component={CategoRes} />
       <Stack.Screen name="Products" component={ProductScreen} />
+      <Stack.Screen name="Filter" component={FilterPage} />
     </Stack.Navigator>
   );
 }

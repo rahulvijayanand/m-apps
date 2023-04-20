@@ -5,6 +5,7 @@ import HomeScreen from "../screens/home";
 import ProductScreen from "../screens/Product";
 import cartpage from "../screens/cartpage";
 import Payments from "../screens/Payments";
+import CategoRes from "../screens/CategoRes";
 const Stack = createStackNavigator();
 
 function HomeStack() {
@@ -19,7 +20,7 @@ function HomeStack() {
       <Stack.Screen name="CartPage" component={cartpage} />
       <Stack.Screen name="Payments" component={Payments} />
       <Stack.Screen name="Products" component={ProductScreen} />
-      
+      <Stack.Screen name="Categores" component={CategoRes} />
     </Stack.Navigator>
   );
 }
