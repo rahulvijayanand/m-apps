@@ -7,6 +7,7 @@ import Wishlist from "../screens/wishlist";
 import ProductScreen from "../screens/Product";
 import Notification from "../screens/Notification";
 import Tracking from "../screens/Tracking";
+import OrderSummary from "../screens/OrderSummary";
 const Stack = createStackNavigator();
 
 function AccountStack() {
@@ -23,6 +24,7 @@ function AccountStack() {
       <Stack.Screen name="Products" component={ProductScreen} />
       <Stack.Screen name="Notify" component={Notification} />
       <Stack.Screen name="Tracking" component={Tracking} />
+      <Stack.Screen name="Ordersummary" component={OrderSummary} />
     </Stack.Navigator>
   );
 }

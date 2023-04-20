@@ -1,6 +1,7 @@
 import React, { useState,useContext,useEffect } from "react";
-import { StyleSheet, TouchableOpacity, Image } from "react-native";
-import productdata from "../productdata.json";
+import { StyleSheet, TouchableOpacity, Image,View,StatusBar } from "react-native";
+import Toast from "./Toast";
+import { Constants } from "expo-constants";import productdata from "../productdata.json";
 import { productcontext } from "../Context/context";
 const LikeButton = (props) => {
 
@@ -29,6 +30,11 @@ const LikeButton = (props) => {
         style={styles.icon}
       />
     </TouchableOpacity>
+   
+
+    
+     
+        
   );
 };
 
