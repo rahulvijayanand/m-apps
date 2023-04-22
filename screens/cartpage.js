@@ -62,7 +62,8 @@ const cartpage = ({ route, navigation }) => {
           </View>
           </TouchableOpacity>
         )}
-        <BillingAddress />
+        {iscartlength!=0 && (<BillingAddress />)}
+        
         <View style={{ marginTop: 50 }}></View>
 
         {iscartlength == 0 && (
@@ -141,5 +142,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     height: "100%",
     paddingTop: StatusBar.currentHeight + 10,
+    justifyContent:"center"
   },
 });

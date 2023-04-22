@@ -17,18 +17,18 @@ const OnboardingScreen = () => {
       title: "Explore Many Products",
       description:
         "Select wide range of products from fresh fruits to delicious snacks and natural, handmade products directly from farm.",
-      image: require("./Onboarding-1.png"),
+      image: require("../assets/Onboarding-1.png"),
     },
     {
       title: "Hassle Free Payments",
       description:
         "Pay as per your convenience, we accept all credit and debit cards.",
-      image: require("./Onboarding-2.png"),
+      image: require("../assets/Onboarding-2.png"),
     },
     {
       title: "Product Delivery",
       description: "Your products are delivered home safely & securely.",
-      image: require("./Onboarding-3.png"),
+      image: require("../assets/Onboarding-3.png"),
     },
   ];
 
@@ -58,7 +58,7 @@ const OnboardingScreen = () => {
     <View style={styles.container}>
       <StatusBar backgroundColor={"transparent"} translucent />
       <Animated.Image
-        source={require("./Asterisk.png")}
+        source={require("../assets/Asterisk-1.png")}
         style={[
           styles.logo,
           {
