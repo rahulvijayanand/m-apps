@@ -12,7 +12,7 @@ import TextSemiBold from "../fonts/TextSemiBold";
 import Cartcomponent from "../components/cartcomponent";
 import PurchaseDetails from "../components/PurchaseDetails";
 
-const cartpage = ({ route, navigation }) => {
+const Cartpage = ({ route, navigation }) => {
   const { product } = useContext(productcontext);
   const [currentproductdata, setproductdata] = product;
   const [iscartlength, setcartlength] = useState(0);
@@ -139,7 +139,7 @@ const cartpage = ({ route, navigation }) => {
   );
 };
 
-export default cartpage;
+export default Cartpage;
 
 const styles = StyleSheet.create({
   container: {

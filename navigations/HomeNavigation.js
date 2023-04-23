@@ -6,6 +6,7 @@ import ProductScreen from "../screens/Product";
 import cartpage from "../screens/cartpage";
 import Payments from "../screens/Payments";
 import CategoRes from "../screens/CategoRes";
+import FilterPage from "../screens/FilterPage";
 const Stack = createStackNavigator();
 
 function HomeStack() {
@@ -21,6 +22,7 @@ function HomeStack() {
       <Stack.Screen name="Payments" component={Payments} options={{ ...TransitionPresets.SlideFromRightIOS }}/>
       <Stack.Screen name="Products" component={ProductScreen} />
       <Stack.Screen name="Categores" component={CategoRes} />
+      <Stack.Screen name="Filter" component={FilterPage} />
     </Stack.Navigator>
   );
 }
