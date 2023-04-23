@@ -7,6 +7,7 @@ import {
   StatusBar,
   TouchableOpacity,
   ScrollView,
+  Pressable
 } from "react-native";
 import { AntDesign, MaterialIcons, Octicons } from "@expo/vector-icons";
 import Location from "../components/Location";
@@ -125,7 +126,7 @@ export default function Tracking({ navigation }) {
         <View>
           {Info.map((item, index) => (
             <View>
-              <TouchableOpacity
+              <Pressable
                 onPress={() => navigation.navigate(item.navi)}
                 style={{
                   marginHorizontal: "3%",
@@ -146,7 +147,7 @@ export default function Tracking({ navigation }) {
                   size={24}
                   color="black"
                 />
-              </TouchableOpacity>
+              </Pressable>
               <View
                 style={{ height: 1, borderWidth: 0.5, borderColor: "#d0d6d4" }}
               />

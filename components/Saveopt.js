@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import {
- 
   View,
   StyleSheet,
   StatusBar,
@@ -50,7 +49,6 @@ const Saveopt = ({ data }) => {
       >
         <TextSemiBold
           style={{
-           
             fontSize: 18,
           }}
         >
@@ -58,7 +56,6 @@ const Saveopt = ({ data }) => {
         </TextSemiBold>
         <TextSemiBold
           style={{
-            
             fontSize: 16,
           }}
         >
@@ -107,7 +104,6 @@ const Saveopt = ({ data }) => {
               >
                 <TextSemiBold
                   style={{
-                    
                     fontSize: 15,
                     marginLeft: "2%",
                     marginBottom: "2%",

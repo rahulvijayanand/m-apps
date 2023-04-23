@@ -14,6 +14,7 @@ const Categories = ({ categoriesList, imagesList, navigation }) => {
           activeOpacity={0.5}
           style={styles.categoryContainer}
           key={category}
+          onPress={() => navigation.navigate("Categores",{category:category.category})}
         >
           <View style={styles.profilepicContainer}>
             <Image source={imagesList[index]} style={styles.categoryImage} />

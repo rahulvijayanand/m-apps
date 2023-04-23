@@ -71,21 +71,20 @@ const App = ({ navigation }) => {
         style={{
           marginVertical: "10%",
           marginHorizontal: "5%",
-          backgroundColor: "black",
+          backgroundColor: "#263d29",
           padding: "3%",
           borderRadius: 10,
         }}
       >
-        <Text
+        <TextSemiBold
           style={{
             color: "#92E38A",
             textAlign: "center",
-            fontWeight: "bold",
             fontSize: 20,
           }}
         >
-          CONTINUE
-        </Text>
+          Continue
+        </TextSemiBold>
       </TouchableOpacity>
 
       <ModalPoup visible={visible}>
@@ -101,7 +100,7 @@ const App = ({ navigation }) => {
             </View>
           </View>
           <View
-            style={{ right: -containerWidth + 30, top: -containerHeight / 4 }}
+            style={{ right: -containerWidth + 35, top: -containerHeight / 4.25 }}
           >
             <ImageBackground
               onLayout={handleImageLayout}

@@ -107,7 +107,8 @@ function HomeScreen({ route, navigation }) {
               require("../assets/R4.png"),
               require("../assets/R5.png"),
             ]}
-            
+            category={["fashion", "craft", "selfcare", "gift", "homeandliving"]}
+            navigation={navigation}
           />
         </View>
         <View>

@@ -1,5 +1,5 @@
 import React from "react";
-import { createStackNavigator } from "@react-navigation/stack";
+import { createStackNavigator, TransitionPresets } from "@react-navigation/stack";
 import SavedCards from "../screens/Savedcards";
 import Myacc from "../screens/account";
 import Generalinfo from "../screens/Generalinfo";
@@ -24,8 +24,8 @@ function AccountStack() {
       <Stack.Screen name="Wishlist" component={Wishlist} />
       <Stack.Screen name="Products" component={ProductScreen} />
       <Stack.Screen name="Notify" component={Notification} />
-      <Stack.Screen name="Tracking" component={Tracking} />
-      <Stack.Screen name="Ordersummary" component={OrderSummary} />
+      <Stack.Screen name="Tracking" component={Tracking} options={{ ...TransitionPresets.SlideFromRightIOS }}/>
+      <Stack.Screen name="Ordersummary" component={OrderSummary} options={{ ...TransitionPresets.SlideFromRightIOS }}/>
       <Stack.Screen name="Orders" component={Orders} />
     </Stack.Navigator>
   );

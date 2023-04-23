@@ -11,7 +11,7 @@ const Textinput = (props) => {
         value={cvv}
         placeholder="cvv"
         keyboardType="numeric"
-        placeholderTextColor="#000"
+        placeholderTextColor="#263d39"
       />
     </View>
   );
@@ -22,7 +22,7 @@ const Styles = StyleSheet.create({
     width: 80,
     margin: 12,
     borderWidth: 1,
-    padding: 10,
+    paddingLeft: 10,
     borderRadius: 6,
     fontSize: 18,
     fontFamily: "MetropolisRegular",

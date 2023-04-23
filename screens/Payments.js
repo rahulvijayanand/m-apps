@@ -56,14 +56,14 @@ export default function Payments({ route, navigation }) {
     <View style={styles.container}>
       <Location navigation={navigation} type="other" text="Payments" />
 
-      <ScrollView style={{ marginTop: "8%" }}>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <Modal navigation={navigation} />
 
         <Amount name={totaldiscountedprice} />
         <View
           style={{
             marginHorizontal: "5%",
-            borderRadius: 5,
+            borderRadius: 15,
             borderColor: "#afb3b1",
             borderWidth: 0.5,
             marginTop: "10%",
@@ -74,7 +74,7 @@ export default function Payments({ route, navigation }) {
         <View
           style={{
             marginHorizontal: "5%",
-            borderRadius: 5,
+            borderRadius: 15,
             borderColor: "#afb3b1",
             borderWidth: 0.5,
             marginTop: "5%",
@@ -91,8 +91,8 @@ export default function Payments({ route, navigation }) {
           </View>
           <Othermodes onlinepay={Onlinepay} other={others} />
         </View>
-        <View style={{ bottom: 40, marginTop: 20, marginBottom: 15 }}>
-          <Modal />
+        <View style={{ marginTop: 10, marginBottom: 70 }}>
+          <Modal navigation={navigation}/>
         </View>
       </ScrollView>
     </View>
