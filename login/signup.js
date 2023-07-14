@@ -1,6 +1,5 @@
 import {
   View,
-  Text,
   TouchableOpacity,
   TextInput,
   StyleSheet,
@@ -14,6 +13,8 @@ import { firebaseConfig } from "../config";
 import firebase from "firebase/compat/app";
 import { useNavigation } from "@react-navigation/native";
 import Feather from "@expo/vector-icons/Feather";
+import Text from "../fonts/Text";
+import TextSemiBold from "../fonts/TextSemiBold";
 
 const Signup = () => {
   const navigation = useNavigation();
@@ -71,7 +72,7 @@ const Signup = () => {
         firebaseConfig={firebaseConfig}
       />
       <View style={{ marginBottom: 30 }}>
-        <Text style={styles.otpText}>User Registeration</Text>
+        <TextSemiBold style={styles.otpText}>User Registeration</TextSemiBold>
         <View
           style={{
             flexDirection: "row",
@@ -147,7 +148,7 @@ const Signup = () => {
           ]}
           disabled={!phoneNumber}
         >
-          <Text style={styles.buttonText}>Submit</Text>
+          <TextSemiBold style={styles.buttonText}>Submit</TextSemiBold>
         </TouchableOpacity>
       </View>
       {!keyboardOpen && (
@@ -157,7 +158,9 @@ const Signup = () => {
             activeOpacity={0.5}
             onPress={() => navigation.navigate("Login")}
           >
-            <Text style={[styles.text, { fontSize: 14 }]}>Login</Text>
+            <TextSemiBold style={[styles.text, { fontSize: 14 }]}>
+              Login
+            </TextSemiBold>
           </TouchableOpacity>
         </View>
       )}
@@ -167,7 +170,7 @@ const Signup = () => {
             source={require("../assets/Asterisk-1.png")}
             style={styles.image}
           />
-          <Text style={styles.text}>Phaila</Text>
+          <TextSemiBold style={styles.text}>Phaila</TextSemiBold>
         </View>
       )}
     </View>
@@ -187,16 +190,15 @@ const styles = StyleSheet.create({
     height: 60,
     color: "#263d2c",
     paddingLeft: 20,
+    fontFamily: "MetropolisRegular",
   },
   buttonText: {
     color: "#263d2c",
     fontSize: 20,
-    fontWeight: "bold",
   },
   otpText: {
     fontSize: 30,
     color: "#92e3a9",
-    fontWeight: "bold",
     marginBottom: 5,
     marginLeft: 30,
   },
@@ -238,7 +240,6 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 16,
     color: "#92e3a9",
-    fontWeight: "bold",
     marginLeft: 5,
   },
   tex1: {
