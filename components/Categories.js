@@ -1,14 +1,8 @@
 import React from "react";
-import {
-  View,
-  StyleSheet,
-  ScrollView,
-  Image,
-  TouchableOpacity,
-} from "react-native";
+import { View, StyleSheet, ScrollView, Image, Pressable } from "react-native";
 import TextSemiBold from "../fonts/TextSemiBold";
 
-const Categories = ({ categoriesList, imagesList }) => {
+const Categories = ({ categoriesList, imagesList, navigation }) => {
   return (
     <ScrollView
       horizontal
@@ -16,16 +10,17 @@ const Categories = ({ categoriesList, imagesList }) => {
       style={{ paddingLeft: 20, marginTop: 30 }}
     >
       {categoriesList.map((category, index) => (
-        <TouchableOpacity
+        <Pressable
           activeOpacity={0.5}
           style={styles.categoryContainer}
           key={category}
+          onPress={() => navigation.navigate("Categores",{category:category.category})}
         >
           <View style={styles.profilepicContainer}>
             <Image source={imagesList[index]} style={styles.categoryImage} />
           </View>
           <TextSemiBold style={styles.categoryText}>{category}</TextSemiBold>
-        </TouchableOpacity>
+        </Pressable>
       ))}
     </ScrollView>
   );

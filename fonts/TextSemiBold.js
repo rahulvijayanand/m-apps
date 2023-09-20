@@ -6,6 +6,10 @@ const Text = ({ style, ...rest }) => {
     MetropolisSB: require("../fonts/Metropolis-SemiBold.otf"),
   });
 
+  if (!fontsLoaded) {
+    return null;
+  }
+
   return (
     <RNText
       style={[{ fontFamily: "MetropolisSB", color: "#263d2c" }, style]}

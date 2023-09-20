@@ -2,10 +2,12 @@ import React, { useContext, useEffect, useState } from "react";
 import {
   StyleSheet,
   View,
-  StatusBar, Image, Dimensions,
+  StatusBar,
+  Image,
+  Dimensions,
   ScrollView,
   Pressable,
-  TouchableOpacity
+  TouchableOpacity,
 } from "react-native";
 import Text from "../fonts/Text";
 import Location from "../components/Location";
@@ -118,7 +120,11 @@ function Wishlist({ route, navigation }) {
         {currentproductdata.map(
           (item) =>
             item.isliked && (
-              <Pressable onPress={() => {navigation.navigate("Products",{id:item.id})}}>
+              <Pressable
+                onPress={() => {
+                  navigation.navigate("Products", { id: item.id });
+                }}
+              >
                 <WishlistComp
                   id={item.id}
                   imageSource={item.images[0]}

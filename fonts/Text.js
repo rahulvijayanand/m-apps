@@ -6,6 +6,10 @@ const Text = ({ style, ...rest }) => {
     MetropolisRegular: require("../fonts/Metropolis-Regular.otf"),
   });
 
+  if (!fontsLoaded) {
+    return null;
+  }
+
   return (
     <RNText
       style={[{ fontFamily: "MetropolisRegular", color: "#263d2c" }, style]}

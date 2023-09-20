@@ -1,4 +1,4 @@
-import React,{useContext,useState,useEffect} from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { Image, StyleSheet, View, TouchableOpacity } from "react-native";
 import Text from "../fonts/Text";
 import ShoppingCartIcon from "../components/cart";
@@ -6,7 +6,7 @@ import TextBold from "../fonts/TextBold";
 import productdata from "../productdata.json";
 import { productcontext } from "../Context/context";
 
-function Location({ navigation, type, text,route }) {
+function Location({ navigation, type, text, route }) {
   const { product } = useContext(productcontext);
   const [currentproductdata, setproductdata] = product;
   const [iscartlength, setcartlength] = useState(0);
@@ -58,8 +58,10 @@ function Location({ navigation, type, text,route }) {
               style={[styles.icon, { width: 30, height: 30, marginRight: 20 }]}
             />
           </TouchableOpacity>
-          <ShoppingCartIcon navigation={navigation} itemsInCart={iscartlength} />
-          
+          <ShoppingCartIcon
+            navigation={navigation}
+            itemsInCart={iscartlength}
+          />
         </View>
       </View>
     );
@@ -93,37 +95,10 @@ function Location({ navigation, type, text,route }) {
         </View>
 
         <View style={{ flexDirection: "row", marginRight: 27 }}>
-        <ShoppingCartIcon navigation={navigation} itemsInCart={iscartlength} />
-        </View>
-      </View>
-    );
-  };
-
-  const renderCart = () => {
-    return (
-      <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
-        <View style={{ flexDirection: "row" }}>
-          <TouchableOpacity
-            activeOpacity={0.4}
-            onPress={() => navigation.goBack()}
-            style={{ flexDirection: "row" }}
-          >
-            <Image  
-              source={require("../assets/Vector-4.png")}
-              style={[
-                styles.icon,
-                { width: 26, height: 26, alignSelf: "center" },
-              ]}
-            />
-          </TouchableOpacity>
-          <Text
-            style={[
-              styles.font,
-              { fontSize: 26, alignSelf: "center", marginLeft: 15 },
-            ]}
-          >
-            Your Cart
-          </Text>
+          <ShoppingCartIcon
+            navigation={navigation}
+            itemsInCart={iscartlength}
+          />
         </View>
       </View>
     );
@@ -166,7 +141,10 @@ function Location({ navigation, type, text,route }) {
               style={[styles.icon, { width: 30, height: 30, marginRight: 20 }]}
             />
           </TouchableOpacity>
-          <ShoppingCartIcon navigation={navigation} itemsInCart={iscartlength} />
+          <ShoppingCartIcon
+            navigation={navigation}
+            itemsInCart={iscartlength}
+          />
         </View>
       </View>
     );
@@ -208,7 +186,6 @@ function Location({ navigation, type, text,route }) {
       {type === "wishlist" && renderWishlist()}
       {type === "explore" && renderExplore()}
       {type === "other" && renderOther(text)}
-      {type=="cart" && renderCart()}
     </View>
   );
 }

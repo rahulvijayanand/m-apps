@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import {
-  Text,
   View,
   StyleSheet,
   StatusBar,
@@ -12,6 +11,8 @@ import {
   MaterialIcons,
   MaterialCommunityIcons,
 } from "@expo/vector-icons";
+import TextSemiBold from "../fonts/TextSemiBold";
+import Text from "../fonts/Text";
 
 import Textinput from "./TextInputcvv";
 import Checkbox from "./Checkbox";
@@ -46,22 +47,20 @@ const Saveopt = ({ data }) => {
           padding: "5%",
         }}
       >
-        <Text
+        <TextSemiBold
           style={{
-            fontWeight: "bold",
             fontSize: 18,
           }}
         >
           Saved cards
-        </Text>
-        <Text
+        </TextSemiBold>
+        <TextSemiBold
           style={{
-            fontWeight: "bold",
             fontSize: 16,
           }}
         >
           Edit
-        </Text>
+        </TextSemiBold>
       </View>
       <View style={{ height: 1, borderWidth: 0.5, borderColor: "#afb3b1" }} />
       {data.map((item, index) => (
@@ -103,16 +102,15 @@ const Saveopt = ({ data }) => {
                   justifyContent: "space-between",
                 }}
               >
-                <Text
+                <TextSemiBold
                   style={{
-                    fontWeight: "bold",
                     fontSize: 15,
                     marginLeft: "2%",
                     marginBottom: "2%",
                   }}
                 >
                   {item.name}
-                </Text>
+                </TextSemiBold>
               </View>
             </View>
             <View
